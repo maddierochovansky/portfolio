@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work With Me &mdash; Maddie Rochovansky</title>
+<meta name="description" content="Freelance operations, workflow automation, AP/AR setup, Excel reporting, SharePoint builds, and web and SEO work. Project-based. No retainer required.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Work With Me &mdash; Maddie Rochovansky">
+<meta property="og:description" content="Freelance operations, workflow automation, AP/AR setup, Excel reporting, SharePoint builds, and web and SEO work. Project-based. No retainer required.">
+<meta property="og:url" content="https://maddierochovansky.com/work-with-me">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Work With Me &mdash; Maddie Rochovansky">
+<meta name="twitter:description" content="Freelance operations, workflow automation, AP/AR setup, Excel reporting, SharePoint builds, and web and SEO work. Project-based. No retainer required.">
+<link rel="canonical" href="https://maddierochovansky.com/work-with-me">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0c'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='18' fill='%23c9a84c'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<noscript><style>.fade{opacity:1!important;transform:none!important}</style></noscript>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#0a0a0c;--bg2:#111114;--bg3:#18181c;
+  --gold:#c9a84c;--gold2:#e2c56e;
+  --gold-dim:rgba(201,168,76,0.12);--gold-border:rgba(201,168,76,0.28);
+  --text:#ede9e0;--text2:#8a8680;--text3:#6b6762;
+  --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.1);
+  --nav-h:60px;--radius:10px;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+
+/* Starfield */
+#starfield{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.star{position:absolute;border-radius:50%;background:rgba(255,255,255,0.6);animation:twinkle var(--dur,3s) ease-in-out infinite var(--delay,0s)}
+@keyframes twinkle{0%,100%{opacity:var(--lo,.1);transform:scale(1)}50%{opacity:var(--hi,.7);transform:scale(1.3)}}
+nav,main,footer{position:relative;z-index:2}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(10,10,12,0.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.5rem,5vw,3.5rem);z-index:100}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;color:var(--gold);text-decoration:none;letter-spacing:0.02em}
+.nav-back{display:inline-flex;align-items:center;gap:0.5rem;color:var(--text2);text-decoration:none;font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s}
+.nav-back:hover{color:var(--gold)}
+.nav-back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* Layout */
+.wrap{max-width:1080px;margin:0 auto;padding-left:clamp(1.5rem,5vw,3.5rem);padding-right:clamp(1.5rem,5vw,3.5rem)}
+section{padding:clamp(3rem,6vw,5rem) 0}
+.rule{height:1px;background:var(--border);max-width:1080px;margin:0 auto}
+
+/* Labels and titles */
+.label{display:inline-flex;align-items:center;gap:0.75rem;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:0.75rem}
+.label::before{content:"";width:24px;height:1px;background:var(--gold-border)}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:300;line-height:1.1;color:var(--text);margin-bottom:2rem;letter-spacing:-0.015em}
+.sec-title em{font-style:italic;color:var(--gold)}
+
+/* Fade animation */
+.fade{opacity:0;transform:translateY(18px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade.show{opacity:1;transform:translateY(0)}
+
+/* Hero */
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:var(--nav-h)}
+.hero-wrap{padding-top:3rem;padding-bottom:3rem;max-width:1100px}
+.badge{display:inline-flex;align-items:center;gap:0.5rem;border:1px solid var(--gold-border);border-radius:100px;padding:0.4rem 1rem;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:2.25rem}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,8.5vw,6.5rem);font-weight:300;line-height:1.0;letter-spacing:-0.025em;color:var(--text);margin-bottom:1.75rem}
+.hero-title span{color:var(--gold);font-style:italic}
+.hero-sub{font-size:clamp(0.95rem,1.8vw,1.08rem);color:var(--text2);font-weight:300;line-height:1.8;max-width:600px;margin-bottom:2.75rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:3rem}
+.btn-gold{display:inline-flex;align-items:center;gap:0.45rem;padding:0.6rem 1.4rem;border-radius:100px;background:var(--gold);color:#0a0a0c;font-size:0.78rem;font-weight:500;text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:all 0.22s;font-family:'DM Sans',sans-serif;cursor:pointer;border:none}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-1px)}
+.btn-outline{display:inline-flex;align-items:center;gap:0.45rem;padding:0.6rem 1.3rem;border:1px solid rgba(255,255,255,0.25);border-radius:100px;color:var(--text);font-size:0.78rem;text-decoration:none;transition:all 0.2s;font-family:'DM Sans',sans-serif;background:rgba(255,255,255,0.05);cursor:pointer;letter-spacing:0.08em;text-transform:uppercase;font-weight:500}
+.btn-outline:hover{border-color:var(--gold-border);color:var(--gold);background:rgba(201,168,76,0.07)}
+
+/* Trust row */
+.trust-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border2);border-radius:10px;overflow:hidden;max-width:580px}
+.trust-cell{padding:1rem 1.1rem;border-right:1px solid var(--border2)}
+.trust-cell:last-child{border-right:none}
+.trust-num{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--gold);line-height:1}
+.trust-label{font-size:0.65rem;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;margin-top:0.35rem;line-height:1.4}
+@media(max-width:560px){.trust-row{grid-template-columns:1fr}}
+
+/* Services */
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+@media(max-width:680px){.services-grid{grid-template-columns:1fr}}
+.service-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;transition:border-color 0.2s,transform 0.2s;display:flex;flex-direction:column;gap:1rem}
+.service-card:hover{border-color:var(--gold-border);transform:translateY(-2px)}
+.service-icon{width:36px;height:36px;border-radius:8px;background:var(--gold-dim);border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.service-icon svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.service-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:var(--text);line-height:1.2;margin-bottom:0.35rem}
+.service-desc{font-size:0.83rem;color:var(--text2);line-height:1.75;font-weight:300;flex:1}
+.service-tags{display:flex;flex-wrap:wrap;gap:0.35rem;padding-top:1rem;border-top:1px solid var(--border);margin-top:auto}
+.stag{padding:0.2rem 0.6rem;border-radius:5px;font-size:0.67rem;color:#0a0a0c;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;border:1px solid}
+.stag-gold{background:rgba(201,168,76,0.78);border-color:rgba(201,168,76,0.9)}
+.stag-blue{background:rgba(126,184,212,0.78);border-color:rgba(126,184,212,0.9)}
+.stag-green{background:rgba(136,201,160,0.78);border-color:rgba(136,201,160,0.9)}
+.stag-purple{background:rgba(168,159,212,0.78);border-color:rgba(168,159,212,0.9)}
+.stag-orange{background:rgba(212,160,126,0.78);border-color:rgba(212,160,126,0.9)}
+
+/* How it works */
+.process-list{display:flex;flex-direction:column;gap:0}
+.process-item{display:grid;grid-template-columns:48px 1fr;gap:1.5rem;padding-bottom:2.5rem;position:relative}
+.process-item:last-child{padding-bottom:0}
+.process-left{display:flex;flex-direction:column;align-items:center}
+.process-num{width:36px;height:36px;border-radius:50%;border:1px solid var(--gold-border);background:var(--gold-dim);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--gold);font-weight:400;flex-shrink:0;position:relative;z-index:1}
+.process-line{flex:1;width:1px;background:var(--border);margin-top:8px}
+.process-item:last-child .process-line{display:none}
+.process-title{font-size:0.9rem;color:var(--text);font-weight:500;margin-bottom:0.35rem;padding-top:0.45rem}
+.process-body{font-size:0.83rem;color:var(--text2);line-height:1.75;font-weight:300}
+
+/* Portfolio callout */
+.portfolio-callout{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:2rem 2.25rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.callout-text{font-size:0.95rem;color:var(--text2);line-height:1.8;font-weight:300;max-width:560px}
+.callout-text strong{color:var(--text);font-weight:500}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+@media(max-width:768px){.contact-grid{grid-template-columns:1fr;gap:2rem}}
+.contact-intro{font-size:0.95rem;color:var(--text2);line-height:1.85;font-weight:300;margin-bottom:1.75rem}
+.contact-note{font-size:0.82rem;color:var(--text3);line-height:1.75;font-weight:300;font-style:italic;border-left:2px solid var(--gold-border);padding-left:1rem;margin-top:1.5rem}
+.contact-options{display:flex;flex-direction:column;gap:0.75rem}
+.contact-opt{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.25rem;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;transition:border-color 0.2s}
+.contact-opt:hover{border-color:var(--gold-border)}
+.contact-opt-icon{width:32px;height:32px;border-radius:8px;background:var(--gold-dim);border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;font-size:0.78rem;flex-shrink:0;color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:500}
+.contact-opt-label{font-size:0.875rem;color:var(--text);font-weight:400;letter-spacing:0.02em}
+.contact-opt-sub{font-size:0.72rem;color:var(--text3);margin-top:0.1rem}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:0.5rem}
+.faq-item{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.5rem;cursor:pointer;background:var(--bg2);transition:background 0.2s;user-select:none;gap:1rem}
+.faq-q:hover{background:var(--bg3)}
+.faq-q-text{font-size:0.875rem;color:var(--text);font-weight:400}
+.faq-chevron{width:8px;height:8px;border-right:1.5px solid var(--text3);border-bottom:1.5px solid var(--text3);transform:rotate(45deg);transition:transform 0.28s,border-color 0.2s;display:inline-block;flex-shrink:0;margin-bottom:3px}
+.faq-item.open .faq-chevron{transform:rotate(-135deg);border-color:var(--gold)}
+.faq-a{display:none;padding:1rem 1.5rem 1.25rem;border-top:1px solid var(--border);font-size:0.855rem;color:var(--text2);line-height:1.8;font-weight:300}
+.faq-item.open .faq-a{display:block}
+
+/* Footer */
+footer{border-top:1px solid var(--border);padding:1.75rem clamp(1.5rem,5vw,3.5rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.foot-text{font-size:0.75rem;color:var(--text3)}
+.foot-links{display:flex;gap:1.5rem}
+.foot-links a{font-size:0.75rem;color:var(--text3);text-decoration:none;transition:color 0.2s}
+.foot-links a:hover{color:var(--gold)}
+
+/* Scroll top */
+#scroll-top{position:fixed;bottom:2rem;right:1.75rem;width:40px;height:40px;border-radius:50%;background:var(--bg2);border:1px solid var(--border2);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:199;opacity:0;pointer-events:none;transition:opacity 0.3s,border-color 0.2s,transform 0.2s}
+#scroll-top.visible{opacity:1;pointer-events:auto}
+#scroll-top:hover{border-color:var(--gold-border);transform:translateY(-2px)}
+#scroll-top svg{width:14px;height:14px;stroke:var(--text2);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:stroke 0.2s}
+#scroll-top:hover svg{stroke:var(--gold)}
+
+@media(max-width:768px){
+  .portfolio-callout{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+<div id="starfield"></div>
+
+<nav>
+  <a href="/" class="nav-logo">Maddie Rochovansky</a>
+  <a href="/" class="nav-back">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    Back to portfolio
+  </a>
+</nav>
+
+<main>
+
+<section id="hero">
+  <div class="wrap hero-wrap">
+
+    <div class="badge fade">Freelance &nbsp;&middot;&nbsp; Project-based &nbsp;&middot;&nbsp; No retainer required</div>
+
+    <h1 class="hero-title fade">The work,<br>without the <span>overhead.</span></h1>
+
+    <p class="hero-sub fade">Operations problems do not care about org charts. If something is broken, undocumented, or taking three times longer than it should, that is a solvable problem. I take on project-based freelance work across ops, automation, finance, and web.</p>
+
+    <div class="trust-row fade" style="margin-bottom:2.75rem">
+      <div class="trust-cell">
+        <div class="trust-num">89%</div>
+        <div class="trust-label">Batch processing time reduction</div>
+      </div>
+      <div class="trust-cell">
+        <div class="trust-num">$6k+</div>
+        <div class="trust-label">Annual savings identified</div>
+      </div>
+      <div class="trust-cell">
+        <div class="trust-num">3+</div>
+        <div class="trust-label">Years building operational systems</div>
+      </div>
+    </div>
+
+    <div class="hero-actions fade">
+      <a href="mailto:maddie.rochovansky@atomicmail.io" class="btn-gold">Get in Touch</a>
+      <a href="https://cal.com/rochovanskym/phone-call" target="_blank" rel="noopener" class="btn-outline">Book a Call</a>
+      <a href="/" class="btn-outline">See My Work</a>
+    </div>
+
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="label fade">Services</div>
+    <h2 class="sec-title fade">What I <em>actually do</em></h2>
+
+    <div class="services-grid fade">
+
+      <div class="service-card">
+        <div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><polyline points="13 2 13 9 20 9"></polyline><path d="M20 14.5V7l-7-5H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h8"></path><path d="M17 21v-6"></path><path d="M15 19l2 2 2-2"></path></svg>
+          </div>
+        </div>
+        <div>
+          <div class="service-name">Workflow Automation</div>
+          <div class="service-desc">Manual processes that run 10, 15, 20 times a week are the ones worth automating. I build Power Automate flows, Office Scripts, and Excel automation that handle the repetitive work so the team does not have to. Intake routing, report generation, remittance emails, batch processing.</div>
+        </div>
+        <div class="service-tags">
+          <span class="stag stag-blue">Power Automate</span>
+          <span class="stag stag-blue">Office Scripts</span>
+          <span class="stag stag-gold">Excel</span>
+          <span class="stag stag-blue">Microsoft Forms</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+          </div>
+        </div>
+        <div>
+          <div class="service-name">Operations Cleanup and SOPs</div>
+          <div class="service-desc">Most operations problems are not complicated. They are undocumented. I map existing workflows, identify where things break, rebuild the process, and write documentation clear enough that it does not need me to explain it. The goal is a system that runs without me in it.</div>
+        </div>
+        <div class="service-tags">
+          <span class="stag stag-green">Process Mapping</span>
+          <span class="stag stag-green">SOP Writing</span>
+          <span class="stag stag-green">Lucidchart</span>
+          <span class="stag stag-green">Lean Six Sigma</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+          </div>
+        </div>
+        <div>
+          <div class="service-name">AP and AR Setup and Cleanup</div>
+          <div class="service-desc">Messy vendor records, approval workflows nobody follows, invoices that live in three different places. I have seen all of it. I build AP and AR systems that are accurate, auditable, and not held together by one person's tribal knowledge. Setup, cleanup, or both.</div>
+        </div>
+        <div class="service-tags">
+          <span class="stag stag-orange">Accounts Payable</span>
+          <span class="stag stag-orange">Accounts Receivable</span>
+          <span class="stag stag-gold">SAP</span>
+          <span class="stag stag-gold">Airtable</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path></svg>
+          </div>
+        </div>
+        <div>
+          <div class="service-name">Excel and Reporting</div>
+          <div class="service-desc">Dashboards, financial reports, and data models built to be used by the people who need them, not just the person who built them. Custom workbooks with validation, XLOOKUP, PivotTables, and Office Scripts. Power BI dashboards for anything that needs to live outside a spreadsheet.</div>
+        </div>
+        <div class="service-tags">
+          <span class="stag stag-gold">Excel</span>
+          <span class="stag stag-purple">Power BI</span>
+          <span class="stag stag-gold">PivotTables</span>
+          <span class="stag stag-gold">XLOOKUP</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+          </div>
+        </div>
+        <div>
+          <div class="service-name">SharePoint and Microsoft 365</div>
+          <div class="service-desc">Document management that people actually use. I build SharePoint intranet hubs, set up folder structures that make sense, connect Microsoft Forms to Power Automate for automated intake and routing, and clean up the Microsoft 365 environments that have grown too organically to navigate.</div>
+        </div>
+        <div class="service-tags">
+          <span class="stag stag-blue">SharePoint</span>
+          <span class="stag stag-blue">Microsoft 365</span>
+          <span class="stag stag-blue">Power Automate</span>
+          <span class="stag stag-blue">Microsoft Forms</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          </div>
+        </div>
+        <div>
+          <div class="service-name">Web Build and SEO</div>
+          <div class="service-desc">Static HTML sites built clean and deployed via Cloudflare. No bloated CMS, no unnecessary dependencies. Paired with a full SEO audit covering keyword targeting, meta structure, and on-page fundamentals. Good for small businesses that need a real web presence without the agency price tag.</div>
+        </div>
+        <div class="service-tags">
+          <span class="stag stag-green">HTML and CSS</span>
+          <span class="stag stag-blue">Cloudflare</span>
+          <span class="stag stag-green">SEO Audit</span>
+          <span class="stag stag-purple">Google Search Console</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<section id="how-it-works">
+  <div class="wrap">
+    <div class="label fade">Process</div>
+    <h2 class="sec-title fade">How it <em>works</em></h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start" class="fade">
+      <div class="process-list">
+
+        <div class="process-item">
+          <div class="process-left">
+            <div class="process-num">1</div>
+            <div class="process-line"></div>
+          </div>
+          <div>
+            <div class="process-title">Tell me what is broken</div>
+            <div class="process-body">Email or book a call. Describe the problem as specifically as you can. The more detail the better, but if you just know something is slow or wrong and cannot name it yet, that is fine too.</div>
+          </div>
+        </div>
+
+        <div class="process-item">
+          <div class="process-left">
+            <div class="process-num">2</div>
+            <div class="process-line"></div>
+          </div>
+          <div>
+            <div class="process-title">Scope and proposal</div>
+            <div class="process-body">I will map out what the project actually involves, what the deliverable looks like, and what it will take to get there. No vague retainer, no scope creep by default. Just a clear project with a clear output.</div>
+          </div>
+        </div>
+
+        <div class="process-item">
+          <div class="process-left">
+            <div class="process-num">3</div>
+            <div class="process-line"></div>
+          </div>
+          <div>
+            <div class="process-title">Build it</div>
+            <div class="process-body">I work independently with check-ins at the stages that matter. You do not need to be in every step. You do need to be reachable when a decision has to be made.</div>
+          </div>
+        </div>
+
+        <div class="process-item">
+          <div class="process-left">
+            <div class="process-num">4</div>
+            <div class="process-line"></div>
+          </div>
+          <div>
+            <div class="process-title">Hand it off with documentation</div>
+            <div class="process-body">Everything gets documented before it leaves my hands. The goal is a system that works without me in it. If it breaks six months later because nobody knows how it runs, that is a bad handoff.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:1rem">
+        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem">
+          <div style="font-size:0.63rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.75rem">Good fit for</div>
+          <div style="display:flex;flex-direction:column;gap:0.5rem">
+            <div style="font-size:0.855rem;color:var(--text2);font-weight:300;padding-left:1rem;position:relative">
+              <span style="position:absolute;left:0;color:var(--gold);font-size:1rem;line-height:1.4">&middot;</span>
+              Small to mid-size businesses with operational problems that do not need a full-time hire
+            </div>
+            <div style="font-size:0.855rem;color:var(--text2);font-weight:300;padding-left:1rem;position:relative">
+              <span style="position:absolute;left:0;color:var(--gold);font-size:1rem;line-height:1.4">&middot;</span>
+              Teams that have outgrown their current process and need someone to rebuild it properly
+            </div>
+            <div style="font-size:0.855rem;color:var(--text2);font-weight:300;padding-left:1rem;position:relative">
+              <span style="position:absolute;left:0;color:var(--gold);font-size:1rem;line-height:1.4">&middot;</span>
+              Founders or operators who know what is broken but do not have the time to fix it
+            </div>
+            <div style="font-size:0.855rem;color:var(--text2);font-weight:300;padding-left:1rem;position:relative">
+              <span style="position:absolute;left:0;color:var(--gold);font-size:1rem;line-height:1.4">&middot;</span>
+              Anyone who needs a real deliverable, not a deck about a deliverable
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem">
+          <div style="font-size:0.63rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.75rem">Not a fit if</div>
+          <div style="display:flex;flex-direction:column;gap:0.5rem">
+            <div style="font-size:0.855rem;color:var(--text2);font-weight:300;padding-left:1rem;position:relative">
+              <span style="position:absolute;left:0;color:var(--text3);font-size:1rem;line-height:1.4">&middot;</span>
+              You need someone available 40 hours a week indefinitely
+            </div>
+            <div style="font-size:0.855rem;color:var(--text2);font-weight:300;padding-left:1rem;position:relative">
+              <span style="position:absolute;left:0;color:var(--text3);font-size:1rem;line-height:1.4">&middot;</span>
+              The project has no defined outcome and no clear decision maker
+            </div>
+            <div style="font-size:0.855rem;color:var(--text2);font-weight:300;padding-left:1rem;position:relative">
+              <span style="position:absolute;left:0;color:var(--text3);font-size:1rem;line-height:1.4">&middot;</span>
+              You need custom software development or enterprise-level IT infrastructure
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<section id="portfolio">
+  <div class="wrap">
+    <div class="label fade">Portfolio</div>
+    <h2 class="sec-title fade">See the <em>actual work</em></h2>
+    <div class="portfolio-callout fade">
+      <p class="callout-text">Every project on my portfolio site is something I built. The STAR format shows the situation, what I was asked to do, what I actually did, and what the result was. <strong>No vague bullets. No inflated scope.</strong> If you want to know what working with me looks like, that is the place to look.</p>
+      <a href="/#projects" class="btn-gold" style="white-space:nowrap">View Projects</a>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="label fade">FAQ</div>
+    <h2 class="sec-title fade">Common <em>questions</em></h2>
+    <div class="faq-list fade">
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          <span class="faq-q-text">How do you price projects?</span>
+          <span class="faq-chevron"></span>
+        </div>
+        <div class="faq-a">Project-based. Scope and price are agreed upfront so there are no surprises at the end. Get in touch with a description of what you need and I will put together a proposal.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          <span class="faq-q-text">How long do projects typically take?</span>
+          <span class="faq-chevron"></span>
+        </div>
+        <div class="faq-a">Depends entirely on scope. A single automation build or a focused audit can be done in a week or two. A full operations cleanup or SharePoint infrastructure build takes longer. Timeline is part of the proposal conversation.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          <span class="faq-q-text">Do you work with clients outside the US?</span>
+          <span class="faq-chevron"></span>
+        </div>
+        <div class="faq-a">Yes. Everything is remote. Time zone overlap helps for check-ins but is not a hard requirement for most project types.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          <span class="faq-q-text">What if I am not sure exactly what I need?</span>
+          <span class="faq-chevron"></span>
+        </div>
+        <div class="faq-a">That is a normal place to start. Book a call and describe the problem. Figuring out what the actual project should be is part of the work. You do not need to have it scoped before reaching out.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this.parentElement)">
+          <span class="faq-q-text">Will I be able to maintain what you build without you?</span>
+          <span class="faq-chevron"></span>
+        </div>
+        <div class="faq-a">That is the goal. Every project includes documentation. If I build something you cannot run without calling me every month, I did not finish the job.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="label fade">Contact</div>
+    <h2 class="sec-title fade">Start the <em>conversation</em></h2>
+    <div class="contact-grid fade">
+      <div>
+        <p class="contact-intro">Describe the problem, the tool, or the process. If you know the outcome you need but not the path to get there, that is fine. That part is what I am here for.</p>
+        <p class="contact-note">Usually responds within one business day. If the project is not a fit I will say so.</p>
+      </div>
+      <div class="contact-options">
+        <a href="mailto:maddie.rochovansky@atomicmail.io" class="contact-opt">
+          <div class="contact-opt-icon">@</div>
+          <div>
+            <div class="contact-opt-label">Email</div>
+            <div class="contact-opt-sub">maddie.rochovansky@atomicmail.io</div>
+          </div>
+        </a>
+        <a href="https://cal.com/rochovanskym/phone-call" target="_blank" rel="noopener" class="contact-opt">
+          <div class="contact-opt-icon">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div>
+            <div class="contact-opt-label">Book a Call</div>
+            <div class="contact-opt-sub">15 minutes. No commitment.</div>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/maddie-rochovansky" target="_blank" rel="noopener" class="contact-opt">
+          <div class="contact-opt-icon">in</div>
+          <div>
+            <div class="contact-opt-label">LinkedIn</div>
+            <div class="contact-opt-sub">linkedin.com/in/maddie-rochovansky</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span class="foot-text">&copy; 2026 Madison Rochovansky</span>
+  <div class="foot-links">
+    <a href="/">Portfolio</a>
+    <a href="https://www.linkedin.com/in/maddie-rochovansky" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://substack.com/@theknownissues" target="_blank" rel="noopener">Substack</a>
+    <a href="https://maddierochovansky.com/madison_rochovansky_resume.pdf" target="_blank" rel="noopener">Resume</a>
+  </div>
+</footer>
+
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+
+<script>
+(function(){
+  // Starfield
+  var sf=document.getElementById('starfield');
+  for(var i=0;i<80;i++){
+    var s=document.createElement('div');
+    s.className='star';
+    var sz=Math.random()*1.8+0.4;
+    s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;--dur:'+(2.5+Math.random()*3)+'s;--delay:'+(Math.random()*4)+'s;--lo:'+(0.05+Math.random()*0.12)+';--hi:'+(0.4+Math.random()*0.4)+';';
+    sf.appendChild(s);
+  }
+
+  // Fade on scroll
+  var fades=document.querySelectorAll('.fade');
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('show');}});
+  },{threshold:0.08});
+  fades.forEach(function(el){observer.observe(el);});
+
+  // Scroll top button
+  var st=document.getElementById('scroll-top');
+  window.addEventListener('scroll',function(){
+    st.classList.toggle('visible',window.scrollY>400);
+  });
+
+  // FAQ toggle
+  window.toggleFaq=function(item){
+    item.classList.toggle('open');
+  };
+})();
+</script>
+</body>
+</html>
