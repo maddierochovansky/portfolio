@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<noscript><style>.fade{opacity:1!important;transform:none!important}</style></noscript>
 <link rel="stylesheet" href="style.css">
 <style>
 .error-screen {
@@ -119,72 +120,22 @@
   </div>
 </div>
 
+<noscript><style>.fade{opacity:1!important;transform:none!important}</style></noscript>
+
+<script src="script.js"></script>
 <script>
-(function () {
-  var sf = document.getElementById('starfield');
-  for (var i = 0; i < 130; i++) {
-    var s = document.createElement('div');
-    s.className = 'star';
-    var sz = Math.random() * 2 + 0.4;
-    s.style.cssText = 'width:' + sz + 'px;height:' + sz + 'px;left:' + Math.random() * 100 + '%;top:' + Math.random() * 100 + '%;--dur:' + (2 + Math.random() * 5) + 's;--delay:' + (Math.random() * 6) + 's;--lo:' + (0.05 + Math.random() * 0.15) + ';--hi:' + (0.4 + Math.random() * 0.55);
-    sf.appendChild(s);
-  }
-
-  var cv = document.getElementById('meteors');
-  var ctx = cv.getContext('2d');
-  function rsz() { cv.width = innerWidth; cv.height = innerHeight; }
-  rsz();
-  window.addEventListener('resize', rsz);
-
-  function Meteor(init) { this.reset(init); }
-  Meteor.prototype.reset = function (init) {
-    this.x = Math.random() * innerWidth * 1.4 - innerWidth * 0.2;
-    this.y = init ? Math.random() * -innerHeight : -80;
-    this.len = 90 + Math.random() * 130;
-    this.spd = 1.6 + Math.random() * 2.2;
-    this.ang = Math.PI / 4 + (Math.random() - 0.5) * 0.25;
-    this.w = 0.4 + Math.random() * 0.9;
-    this.life = 0; this.maxLife = 70 + Math.random() * 110;
-    this.peak = 0.25 + Math.random() * 0.4;
-  };
-  Meteor.prototype.draw = function () {
-    this.life++;
-    var fi = 18, fo = 22, a;
-    if (this.life < fi) a = (this.life / fi) * this.peak;
-    else if (this.life > this.maxLife - fo) a = ((this.maxLife - this.life) / fo) * this.peak;
-    else a = this.peak;
-    if (this.life >= this.maxLife) this.reset();
-    var tx = this.x - Math.cos(this.ang) * this.len, ty = this.y - Math.sin(this.ang) * this.len;
-    this.x += Math.cos(this.ang) * this.spd;
-    this.y += Math.sin(this.ang) * this.spd;
-    var g = ctx.createLinearGradient(tx, ty, this.x, this.y);
-    g.addColorStop(0, 'transparent');
-    g.addColorStop(1, 'rgba(201,168,76,' + a + ')');
-    ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(this.x, this.y);
-    ctx.strokeStyle = g; ctx.lineWidth = this.w; ctx.stroke();
-  };
-
-  var meteors = [];
-  for (var i = 0; i < 10; i++) meteors.push(new Meteor(true));
-  function animLoop() {
-    ctx.clearRect(0, 0, cv.width, cv.height);
-    for (var i = 0; i < meteors.length; i++) meteors[i].draw();
-    requestAnimationFrame(animLoop);
-  }
-  animLoop();
-
-  var lines = [
-    "Which, for the record, is exactly the kind of thing I fix.",
-    "Checked twice. It is definitely not here.",
-    "The process that led you here could use some work.",
-    "Undocumented. Classic.",
-    "This would not have happened with a proper redirect map.",
-    "Somewhere, a broken link is living its best life."
-  ];
-  var el = document.getElementById('error-fun');
-  var idx = Math.floor(Math.random() * lines.length);
-  el.textContent = lines[idx];
-})();
+  (function () {
+    var lines = [
+      "Which, for the record, is exactly the kind of thing I fix.",
+      "Checked twice. It is definitely not here.",
+      "The process that led you here could use some work.",
+      "Undocumented. Classic.",
+      "This would not have happened with a proper redirect map.",
+      "Somewhere, a broken link is living its best life."
+    ];
+    var el = document.getElementById('error-fun');
+    el.textContent = lines[Math.floor(Math.random() * lines.length)];
+  })();
 </script>
 
 </body>
