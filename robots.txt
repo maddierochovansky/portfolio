@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maddierochovansky.com/sitemap.xml
