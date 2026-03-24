@@ -45,7 +45,7 @@
     <li><a href="#experience">Experience</a></li>
     <li><a href="#certifications">Certifications</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="/work-with-me" style="color:var(--gold)">Work With Me</a></li>
+    <a href="/work-with-me" class="nav-gold">Work With Me</a>
   </ul>
   <button class="ham" id="ham" onclick="toggleMob()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -167,8 +167,8 @@
 <section id="blog">
   <div class="wrap">
     <div class="label fade">Blog</div>
-    <div class="fade" style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2rem">
-      <h2 class="sec-title" style="margin-bottom:0">Things worth <em>writing down</em></h2>
+    <div class="fade blog-header-row">
+  <h2 class="sec-title blog-sec-title">Things worth <em>writing down</em></h2>
       <a href="https://substack.com/@theknownissues" target="_blank" rel="noopener" class="btn-substack">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
         Follow on Substack
@@ -176,25 +176,25 @@
     </div>
     <div class="blog-grid fade">
 
-      <div class="blog-card" style="cursor:pointer" onclick="window.open('https://open.substack.com/pub/theknownissues/p/nobody-is-hungry-but-everyone-is?utm_campaign=post-expanded-share&utm_medium=post%20viewer','_blank')">
+      <div class="blog-card blog-card-link" onclick="window.open('https://open.substack.com/pub/theknownissues/p/nobody-is-hungry-but-everyone-is?utm_campaign=post-expanded-share&utm_medium=post%20viewer','_blank')">
         <div class="blog-tag">Culture</div>
         <div class="blog-title">Nobody Is Hungry but Everyone Is Losing Their Mind</div>
         <div class="blog-desc">John Calhoun built his mice a utopia. Food, water, shelter, no predators. The only thing missing was space. What followed was not starvation. It was social collapse. Organizations sometimes recreate this experiment without realizing it.</div>
-        <div class="blog-footer"><span class="blog-status" style="color:var(--gold)">Read on Substack &rarr;</span></div>
+        <div class="blog-footer"><span class="blog-status blog-status-gold">Read on Substack &rarr;</span></div>
       </div>
 
-      <div class="blog-card" style="cursor:pointer" onclick="window.open('https://open.substack.com/pub/theknownissues/p/the-ship-of-theseus-problem-but-for?r=7vey64&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true','_blank')">
+      <div class="blog-card blog-card-link" onclick="window.open('https://open.substack.com/pub/theknownissues/p/the-ship-of-theseus-problem-but-for?r=7vey64&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true','_blank')">
         <div class="blog-tag">Process</div>
         <div class="blog-title">The Ship of Theseus Problem, but for SOPs</div>
         <div class="blog-desc">If a procedure has been patched, revised, and quietly edited enough times that nothing from the original remains, is it still the same process? And does anyone in the building actually know what the current version says? In my experience the answer is no. To both questions.</div>
-        <div class="blog-footer"><span class="blog-status" style="color:var(--gold)">Read on Substack &rarr;</span></div>
+        <div class="blog-footer"><span class="blog-status blog-status-gold">Read on Substack &rarr;</span></div>
       </div>
 
-      <div class="blog-card" style="cursor:pointer" onclick="window.open('https://open.substack.com/pub/theknownissues/p/goodharts-law-is-the-only-management?utm_campaign=post-expanded-share&utm_medium=post%20viewer','_blank')">
+      <div class="blog-card blog-card-link" onclick="window.open('https://open.substack.com/pub/theknownissues/p/goodharts-law-is-the-only-management?utm_campaign=post-expanded-share&utm_medium=post%20viewer','_blank')">
         <div class="blog-tag">Metrics</div>
         <div class="blog-title">Goodhart's Law Is the Only Management Theory You Actually Need</div>
         <div class="blog-desc">When a measure becomes a target it stops being a good measure. Soviet factories were once judged by the number of nails produced. So they produced millions of tiny useless nails. I have seen the modern equivalent. It did not involve nails.</div>
-        <div class="blog-footer"><span class="blog-status" style="color:var(--gold)">Read on Substack &rarr;</span></div>
+        <div class="blog-footer"><span class="blog-status blog-status-gold">Read on Substack &rarr;</span></div>
       </div>
 
     </div>
@@ -712,7 +712,7 @@
         <div>
           <div class="exp-dates">Oct 2024 &ndash; Present</div>
           <div class="exp-co">Mitsubishi International Food Ingredients (MIFI), Hackensack, NJ</div>
-          <div class="exp-role">Accounts Payable &amp; IT Administrative Assistant <span style="font-size:0.9rem;color:var(--text2);font-weight:300;font-family:'DM Sans',sans-serif;">(Operations, Finance &amp; IT)</span></div>
+          <div class="exp-role">Accounts Payable &amp; IT Administrative Assistant <span class="exp-role-sub">(Operations, Finance &amp; IT)</span></div>
           <ul class="exp-buls">
             <li>Owned end-to-end vendor payment cycle across 600+ monthly transactions with zero late payments; automated post-run remittance communications via Power Automate, eliminating all manual email drafting after payment runs</li>
             <li>Built a vendor lifecycle system in Airtable covering onboarding intake, contract tracking, performance threshold alerts, and relationship management across 50+ active accounts</li>
@@ -778,9 +778,6 @@
         <div class="cert-edu-col-label">Education</div>
         <div class="cert-edu-degree">B.A., Business Administration &amp; Management</div>
         <div class="cert-edu-meta">St. Petersburg College, FL &middot; 2022</div>
-      </div>
-      <div>
-        <div class="cert-edu-col-label">Recognition</div>
       </div>
     </div>
 
@@ -895,8 +892,8 @@
             <div class="contact-opt-icon">in</div>
             <div><div class="contact-opt-label">LinkedIn</div></div>
           </a>
-          <button class="contact-opt" onclick="openModal()" style="width:100%;text-align:left;cursor:pointer;background:var(--bg2);border:1px solid var(--border)">
-            <span class="contact-opt-icon" style="font-size:1rem">&#9998;</span>
+          <button class="contact-opt contact-opt-btn" onclick="openModal()">
+            <span class="contact-opt-icon contact-opt-icon-lg">&#9998;</span>
             <span><span style="display:block" class="contact-opt-label">Send a Message</span></span>
           </button>
         </div>
@@ -936,7 +933,7 @@
             <input id="cf-email" type="email" name="email" placeholder="your@email.com" autocomplete="email" required>
           </div>
         </div>
-        <div class="form-field" style="margin-bottom:0.75rem">
+        <div class="form-field form-field-spaced">
           <label for="cf-subject">Subject</label>
           <input id="cf-subject" type="text" name="subject" placeholder="What is this about?" autocomplete="off">
         </div>

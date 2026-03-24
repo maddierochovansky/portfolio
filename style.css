@@ -495,3 +495,49 @@ footer{border-top:1px solid var(--border);padding:1.75rem clamp(1.5rem,5vw,3.5re
   vertical-align: middle;
   animation: pdot 2.5s ease-in-out infinite;
 }
+.nav-gold {
+  color: var(--gold);
+}
+
+.blog-header-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.blog-sec-title {
+  margin-bottom: 0;
+}
+
+.blog-card-link {
+  cursor: pointer;
+}
+
+.blog-status-gold {
+  color: var(--gold);
+}
+.exp-role-sub {
+  font-size: 0.9rem;
+  color: var(--text2);
+  font-weight: 300;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.contact-opt-btn {
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+}
+
+.contact-opt-icon-lg {
+  font-size: 1rem;
+}
+
+.form-field-spaced {
+  margin-bottom: 0.75rem;
+}
