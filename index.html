@@ -79,23 +79,23 @@
         <p class="hero-sub fade">Finance background. Systems mindset. I build workflows that make operations faster and harder to break.</p>
 
         <!-- Stats row -->
-        <div class="fade hero-stats-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border2);border-radius:10px;overflow:hidden;margin-bottom:2.25rem">
-          <div style="padding:1rem 1.1rem;border-right:1px solid var(--border2)">
-            <div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--gold);line-height:1">89%</div>
-            <div style="font-size:0.65rem;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;margin-top:0.35rem;line-height:1.4">Batch processing time reduction</div>
+        <div class="fade hero-stats-grid">
+          <div class="hero-stat-cell">
+           <div class="hero-stat-num">89%</div>
+            <div class="hero-stat-label">Batch processing time reduction</div>
           </div>
-          <div style="padding:1rem 1.1rem;border-right:1px solid var(--border2)">
-            <div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--gold);line-height:1">600+</div>
-            <div style="font-size:0.65rem;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;margin-top:0.35rem;line-height:1.4">Monthly transactions, zero late payments</div>
+          <div class="hero-stat-cell">
+            <div class="hero-stat-num">600+</div>
+            <div class="hero-stat-label">Monthly transactions, zero late payments</div>
           </div>
-          <div style="padding:1rem 1.1rem">
-            <div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--gold);line-height:1">$6k+</div>
-            <div style="font-size:0.65rem;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;margin-top:0.35rem;line-height:1.4">Annual cost savings identified</div>
+          <div class="hero-stat-cell">
+            <div class="hero-stat-num">$6k+</div>
+            <div class="hero-stat-label">Annual cost savings identified</div>
           </div>
         </div>
 
         <!-- Skill tags -->
-        <div class="skills-strip fade" style="margin-bottom:2.25rem">
+        <div class="skills-strip fade hero-skills">
           <span class="skill-tag sk-finance">Vendor Lifecycle Management</span>
           <span class="skill-tag sk-automation">Workflow Automation</span>
           <span class="skill-tag sk-finance">CFO Reporting</span>
@@ -126,12 +126,12 @@
     <h2 class="sec-title fade">Built from the <em>ground up.</em></h2>
     <div class="about-grid fade">
       <div>
-        <p style="font-size:0.95rem;color:var(--text2);line-height:1.85;font-weight:300;margin-bottom:1.1rem">Most of my work starts the same way. A messy process, a lot of manual work, and someone asking why it is done this way.</p>
-        <p style="font-size:0.95rem;color:var(--text2);line-height:1.85;font-weight:300;margin-bottom:1.1rem">I work in operations and process improvement with experience across AP and AR, IT operations, vendor management, and system automation. Pretty good at spotting where processes break before they do.</p>
-        <p style="font-size:0.95rem;color:var(--text2);line-height:1.85;font-weight:300;margin-bottom:1.1rem">What makes my approach different is that I understand both sides of the work. The financial discipline that comes from running AP and AR, and the systems thinking required to build automation from scratch.</p>
-        <p style="font-size:0.95rem;color:var(--text2);line-height:1.85;font-weight:300;margin-bottom:1.1rem">I own projects end to end. I document everything so the work survives my absence.</p>
-        <p style="font-size:0.95rem;color:var(--text2);line-height:1.85;font-weight:300;margin-bottom:1.1rem">Outside of work I have two cats with strong opinions, travel whenever possible, and a spreadsheet that is genuinely never closed.</p>
-        <div style="margin-top:0.5rem">
+        <p class="about-p">Most of my work starts the same way. A messy process, a lot of manual work, and someone asking why it is done this way.</p>
+        <p class="about-p"> I work in operations and process improvement with experience across AP and AR, IT operations, vendor management, and system automation. Pretty good at spotting where processes break before they do.</p>
+        <p class="about-p">What makes my approach different is that I understand both sides of the work. The financial discipline that comes from running AP and AR, and the systems thinking required to build automation from scratch.</p>
+        <p class="about-p">I own projects end to end. I document everything so the work survives my absence.</p>
+        <p class="about-p">Outside of work I have two cats with strong opinions, travel whenever possible, and a spreadsheet that is genuinely never closed.</p>
+        <div class="about-fun-wrap">
           <button class="btn-fun" id="fun-btn" onclick="rotateFun()">Something about me</button>
           <p class="fun-text" id="fun-text"></p>
         </div>
@@ -139,23 +139,23 @@
       <div>
         <div class="info-card">
           <div class="info-label">Status</div>
-          <div style="font-size:0.875rem;color:var(--text)"><span style="display:inline-block;width:6px;height:6px;background:#4ade80;border-radius:50%;margin-right:0.4rem;vertical-align:middle;animation:pdot 2.5s ease-in-out infinite"></span>Actively seeking full-time remote roles in Business Operations, Process Improvement, or RevOps</div>
+          <div class="info-card-text"><span class="status-indicator"></span>Actively seeking full-time remote roles in Business Operations, Process Improvement, or RevOps</div>
         </div>
         <div class="info-card">
           <div class="info-label">Education</div>
-          <div style="font-size:0.875rem;color:var(--text)">B.A., Business Administration &amp; Management</div>
-          <div style="font-size:0.78rem;color:var(--text2);margin-top:0.2rem">St. Petersburg College, FL &middot; 2022</div>
+          <div class="info-card-text">B.A., Business Administration &amp; Management</div>
+          <div class="info-card-text">St. Petersburg College, FL &middot; 2022</div>
         </div>
         <div class="info-card">
           <div class="info-label">Recognition &middot; MIFI</div>
-          <div style="font-size:0.82rem;color:var(--text);font-weight:400;margin-bottom:0.5rem">ELP Learning Award, Q3 2024</div>
-          <div style="font-size:0.78rem;color:var(--text2);font-weight:300;margin-bottom:0.75rem;line-height:1.6">Recognized for continuously building new skills, applying lessons learned, and using problem-solving to deliver stronger results.</div>
-          <div style="font-size:0.82rem;color:var(--text);font-weight:400;margin-bottom:0.5rem">ELP Initiative Award, Q2 2025</div>
-          <div style="font-size:0.78rem;color:var(--text2);font-weight:300;line-height:1.6">Recognized for identifying issues, proposing solutions, and improving processes without waiting for direction.</div>
+          <div class="info-card-award-title">ELP Learning Award, Q3 2024</div>
+          <div class="info-card-award-description">Recognized for continuously building new skills, applying lessons learned, and using problem-solving to deliver stronger results.</div>
+          <div class="info-card-award-title">ELP Initiative Award, Q2 2025</div>
+          <div class="info-card-award-description">Recognized for identifying issues, proposing solutions, and improving processes without waiting for direction.</div>
         </div>
         <div class="info-card">
           <div class="info-label">Location</div>
-          <div style="font-size:0.875rem;color:var(--text)">Passaic, NJ &middot; open to remote anywhere</div>
+          <div class="info-card-text">Passaic, NJ &middot; open to remote anywhere</div>
         </div>
       </div>
     </div>
@@ -781,8 +781,6 @@
       </div>
       <div>
         <div class="cert-edu-col-label">Recognition</div>
-        <div class="cert-recog-item"><span class="cert-recog-dot"></span><span class="cert-recog-text"><strong style="color:var(--text);font-weight:500">ELP Learning Award, Q3 2024</strong> &middot; Recognized for continuously building new skills, applying lessons learned, and using problem-solving to deliver stronger results.</span></div>
-        <div class="cert-recog-item" style="margin-top:0.6rem"><span class="cert-recog-dot"></span><span class="cert-recog-text"><strong style="color:var(--text);font-weight:500">ELP Initiative Award, Q2 2025</strong> &middot; Recognized for identifying issues, proposing solutions, and improving processes without waiting for direction.</span></div>
       </div>
     </div>
 

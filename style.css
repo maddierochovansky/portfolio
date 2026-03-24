@@ -324,3 +324,174 @@ footer{border-top:1px solid var(--border);padding:1.75rem clamp(1.5rem,5vw,3.5re
 @media(max-width:768px){
   .portfolio-callout{flex-direction:column;align-items:flex-start}
 }
+
+.hero-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--border2);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 2.25rem;
+}
+
+.hero-stat-cell {
+  padding: 1rem 1.1rem;
+  border-right: 1px solid var(--border2);
+}
+
+.hero-stat-cell:last-child {
+  border-right: none;
+}
+
+.hero-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-size: 0.65rem;
+  color: var(--text3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 0.35rem;
+  line-height: 1.4;
+}
+
+.hero-skills {
+  margin-bottom: 2.25rem;
+}
+
+.about-p {
+  font-size: 0.95rem;
+  color: var(--text2);
+  line-height: 1.85;
+  font-weight: 300;
+  margin-bottom: 1.1rem;
+}
+
+.about-fun-wrap {
+  margin-top: 0.5rem;
+}
+
+.info-card-text {
+  font-size: 0.875rem;
+  color: var(--text);
+}
+
+.info-card-meta {
+  font-size: 0.78rem;
+  color: var(--text2);
+  margin-top: 0.2rem;
+}
+
+.info-card-award-title {
+  font-size: 0.82rem;
+  color: var(--text);
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.info-card-award-desc {
+  font-size: 0.78rem;
+  color: var(--text2);
+  font-weight: 300;
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.status-indicator {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #4ade80;
+  border-radius: 50%;
+  margin-right: 0.4rem;
+  vertical-align: middle;
+  animation: pdot 2.5s ease-in-out infinite;
+}
+.hero-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--border2);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 2.25rem;
+}
+
+.hero-stat-cell {
+  padding: 1rem 1.1rem;
+  border-right: 1px solid var(--border2);
+}
+
+.hero-stat-cell:last-child {
+  border-right: none;
+}
+
+.hero-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-size: 0.65rem;
+  color: var(--text3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 0.35rem;
+  line-height: 1.4;
+}
+
+.hero-skills {
+  margin-bottom: 2.25rem;
+}
+
+.about-p {
+  font-size: 0.95rem;
+  color: var(--text2);
+  line-height: 1.85;
+  font-weight: 300;
+  margin-bottom: 1.1rem;
+}
+
+.about-fun-wrap {
+  margin-top: 0.5rem;
+}
+
+.info-card-text {
+  font-size: 0.875rem;
+  color: var(--text);
+}
+
+.info-card-award-title {
+  font-size: 0.82rem;
+  color: var(--text);
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.info-card-award-description {
+  font-size: 0.78rem;
+  color: var(--text2);
+  font-weight: 300;
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.status-indicator {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #4ade80;
+  border-radius: 50%;
+  margin-right: 0.4rem;
+  vertical-align: middle;
+  animation: pdot 2.5s ease-in-out infinite;
+}
