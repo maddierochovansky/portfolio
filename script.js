@@ -264,7 +264,7 @@
   function toggleCert(el) {
     var isOpen = el.classList.toggle('open');
     var hdr = el.querySelector('.cert-group-header');
-    if (hdr) hdr.setAttribute('aria-expanded', isOpen);
+    if (hdr) hdr.setAttribute('aria-expanded', String(isOpen));
   }
 
 
