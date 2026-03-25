@@ -7,3 +7,5 @@
 # OS
 .DS_Store
 Thumbs.db
+# Cloudflare deployment config
+wrangler.jsonc
