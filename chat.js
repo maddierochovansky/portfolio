@@ -67,6 +67,7 @@
       var btn = document.createElement('button');
       btn.className = 'sug-btn';
       btn.textContent = txt;
+      btn.setAttribute('aria-label', 'Ask: ' + txt);
       btn.onclick = function () { askSuggestion(btn); };
       el.appendChild(btn);
     });
@@ -77,6 +78,16 @@
     _sugSeen    = fixed.slice();
     _sugCurrent = fixed.slice();
     _renderSuggestions(fixed);
+  }
+
+  function debugChat() {
+    console.log('Chat Debug Info:');
+    console.log('Panel element:', document.getElementById('chat-panel'));
+    console.log('Suggestions element:', document.getElementById('chat-suggestions'));
+    console.log('Input element:', document.getElementById('chat-input'));
+    console.log('Messages element:', document.getElementById('chat-messages'));
+    console.log('Current suggestions:', _sugCurrent);
+    console.log('Seen suggestions:', _sugSeen);
   }
 
   function _refreshSuggestions(bucket) {
@@ -300,10 +311,20 @@
   // ==========================================================================
 
   function toggleChat() {
-    var panel     = document.getElementById('chat-panel');
-    var isOpening = !panel.classList.contains('open');
-    panel.classList.toggle('open');
-    if (isOpening) _initSuggestions();
+    try {
+      var panel     = document.getElementById('chat-panel');
+      var isOpening = !panel.classList.contains('open');
+      panel.classList.toggle('open');
+      if (isOpening) {
+        _initSuggestions();
+        setTimeout(function() {
+          var input = document.getElementById('chat-input');
+          if (input) input.focus();
+        }, 300);
+      }
+    } catch (e) {
+      console.error('Chat toggle error:', e);
+    }
   }
 
   function askSuggestion(btn) {
@@ -314,16 +335,28 @@
   }
 
   function sendChat() {
-    var input = document.getElementById('chat-input');
-    var val   = input.value.trim();
-    if (!val) return;
-    addUserMsg(val);
-    input.value = '';
-    getResponse(val);
+    try {
+      var input = document.getElementById('chat-input');
+      if (!input) return;
+      
+      var val = input.value.trim();
+      if (!val) return;
+      
+      addUserMsg(val);
+      input.value = '';
+      getResponse(val);
+      
+      setTimeout(function() {
+        if (input) input.focus();
+      }, 100);
+    } catch (e) {
+      console.error('Send chat error:', e);
+    }
   }
 
   window.toggleChat    = toggleChat;
   window.askSuggestion = askSuggestion;
   window.sendChat      = sendChat;
+  window.debugChat     = debugChat;
 
 })();

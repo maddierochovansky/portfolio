@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Maddie Rochovansky - Business Operations &amp; Process Improvement | Seeking Remote</title>
 <meta name="description" content="Business Operations professional with 3+ years in workflow automation, vendor systems, and executive reporting. Seeking full-time remote positions in Business Operations, Process Improvement, or RevOps. Lean Six Sigma Green Belt certified.">
 <meta name="robots" content="index, follow">
@@ -163,8 +163,6 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(10,1
     <div class="hero-layout">
       <div class="hero-text">
 
-        <div class="badge fade"><span class="badge-dot"></span>Open to remote roles &nbsp;&middot;&nbsp; Available now</div>
-
         <h1 class="hero-title fade">The person behind<br><span>the process.</span></h1>
 
         <p class="hero-sub fade">Finance background. Systems mindset. I build workflows that make operations faster and harder to break.</p>
@@ -215,6 +213,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(10,1
       </div>
       <div class="hero-photo fade">
         <img src="assets/photo.jpg" alt="Maddie Rochovansky" class="photo-img" width="200" height="200" loading="eager">
+        <div class="badge fade"><span class="badge-dot"></span>Open to remote roles &nbsp;&middot;&nbsp; Available now</div>
       </div>
     </div>
   </div>
@@ -606,7 +605,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(10,1
   <div class="wrap footer-wrap">
     <div class="footer-inner">
       <div class="footer-left">
-        <div class="footer-name">Madison Rochovansky</div>
+        <div class="footer-name">Maddie Rochovansky</div>
         <div class="footer-icons">
           <a href="/cdn-cgi/l/email-protection#ddb0bcb9b9b4b8f3afb2beb5b2abbcb3aeb6a49dbca9b2b0b4beb0bcb4b1f3b4b2" class="footer-icon" aria-label="Email">
             <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -691,8 +690,8 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(10,1
     </div>
     <div class="chat-suggestions" id="chat-suggestions"></div>
     <div class="chat-input-row">
-      <input id="chat-input" type="text" placeholder="type here..." autocomplete="off" onkeydown="if(event.key==='Enter')sendChat()">
-      <button id="chat-send" onclick="sendChat()">Send</button>
+      <input id="chat-input" type="text" placeholder="type here..." autocomplete="off" onkeydown="if(event.key==='Enter')sendChat()" aria-label="Type your message">
+      <button id="chat-send" onclick="sendChat()" aria-label="Send message">Send</button>
     </div>
   </div>
   <button id="chat-bubble" onclick="toggleChat()">Ask Maddie</button>

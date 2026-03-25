@@ -18,6 +18,14 @@
       '--delay:' + (Math.random() * 6) + 's;' +
       '--lo:' + (0.05 + Math.random() * 0.15) + ';' +
       '--hi:' + (0.4 + Math.random() * 0.55);
+    
+    // Add random color variations
+    if (Math.random() > 0.7) {
+      s.style.background = 'rgba(201, 168, 76, 0.8)'; // Gold stars
+    } else if (Math.random() > 0.9) {
+      s.style.background = 'rgba(241, 175, 167, 0.8)'; // Pink stars
+    }
+    
     sf.appendChild(s);
   }
 
