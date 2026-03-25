@@ -123,14 +123,15 @@
   // ==========================================================================
 
   function toggleMob() {
-    document.getElementById('mob-menu').classList.toggle('open');
-  }
+  var ham = document.getElementById('ham');
+  var isOpen = document.getElementById('mob-menu').classList.toggle('open');
+  ham.setAttribute('aria-expanded', String(isOpen));
+}
 
-  function closeMob() {
-    document.getElementById('mob-menu').classList.remove('open');
-  }
-
-  // close mobile menu when clicking outside
+function closeMob() {
+  document.getElementById('mob-menu').classList.remove('open');
+  document.getElementById('ham').setAttribute('aria-expanded', 'false');
+}
   document.addEventListener('click', function (e) {
     var m = document.getElementById('mob-menu');
     if (
@@ -139,13 +140,13 @@
       !document.getElementById('ham').contains(e.target)
     ) {
       m.classList.remove('open');
+      document.getElementById('ham').setAttribute('aria-expanded', 'false')
     }
   });
-
-  // close mobile menu on scroll
   window.addEventListener('scroll', function () {
     var m = document.getElementById('mob-menu');
     if (m.classList.contains('open')) m.classList.remove('open');
+    document.getElementById('ham').setAttribute('aria-expanded', 'false')
   }, { passive: true });
 
   // ==========================================================================
@@ -233,7 +234,7 @@
   function toggleProj(el) {
     var isOpen = el.classList.toggle('open');
     var btn = el.querySelector('.proj-toggle');
-    if (btn) btn.setAttribute('aria-expanded', isOpen);
+    if (btn) btn.setAttribute('aria-expanded', String(isOpen));
   }
 
   // hide non-automation projects on load (default filter state)
@@ -334,21 +335,26 @@
   // CONTACT MODAL
   // ==========================================================================
 
+  var _modalTrigger = null;
   function openModal() {
-    document.getElementById('contact-modal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
+    _modalTrigger = document.activeElement;
+   var modal = document.getElementById('contact-modal');
+   modal.classList.add('open');
+   document.body.style.overflow = 'hidden';
+   var first = modal.querySelector('input, button, textarea, [tabindex]');
+   if (first) first.focus();
+}
 
   function closeModal() {
-    document.getElementById('contact-modal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
+   document.getElementById('contact-modal').classList.remove('open');
+   document.body.style.overflow = '';
+   if (_modalTrigger) { _modalTrigger.focus(); _modalTrigger = null; }
+}
 
   function handleModalClick(e) {
     if (e.target === document.getElementById('contact-modal')) closeModal();
   }
 
-  // close modal and chat panel on Escape
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
       closeModal();
@@ -357,7 +363,6 @@
     }
   });
 
-  // contact form submission
   var _cf = document.getElementById('contact-form');
   if (_cf) _cf.addEventListener('submit', function (e) {
     e.preventDefault();
