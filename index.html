@@ -22,325 +22,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <noscript><style>.fade{opacity:1!important;transform:none!important}</style></noscript>
 <link rel="stylesheet" href="style.css">
-<style>
-  /* Nav dropdown */
-  .nav-dropdown { position: relative; }
-  .nav-dropdown-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.35rem;
-    color: var(--text2);
-    font-size: 0.74rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
-    padding: 0;
-    transition: color 0.2s;
-  }
-  .nav-dropdown-btn:hover { color: var(--gold); }
-  .nav-dropdown-btn svg {
-    width: 10px;
-    height: 10px;
-    stroke: currentColor;
-    fill: none;
-    stroke-width: 2.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    transition: transform 0.2s;
-  }
-  .nav-dropdown:hover .nav-dropdown-btn svg { transform: rotate(180deg); }
-  .nav-dropdown-menu {
-    display: none;
-    position: absolute;
-    top: calc(100% + 0.75rem);
-    right: 0;
-    background: rgba(17, 17, 20, 0.97);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--border2);
-    border-radius: 10px;
-    padding: 0.4rem;
-    min-width: 160px;
-    z-index: 200;
-  }
-  .nav-dropdown:hover .nav-dropdown-menu { display: block; }
-  .nav-dropdown-menu a {
-    display: block;
-    padding: 0.55rem 0.9rem;
-    font-size: 0.74rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text2);
-    text-decoration: none;
-    border-radius: 6px;
-    transition: background 0.15s, color 0.15s;
-    white-space: nowrap;
-  }
-  .nav-dropdown-menu a:hover {
-    background: var(--gold-dim);
-    color: var(--gold);
-  }
-
-  /* Experience bullet collapse */
-  .exp-bul-hidden { display: none; }
-  .exp-buls.expanded .exp-bul-hidden { display: list-item; }
-  .exp-bul-toggle {
-    background: none;
-    border: none;
-    font-size: 0.72rem;
-    color: var(--text3);
-    cursor: pointer;
-    padding: 0.3rem 0;
-    font-family: 'DM Sans', sans-serif;
-    transition: color 0.2s;
-    text-decoration: underline;
-    text-underline-offset: 2px;
-    margin-top: 0.25rem;
-    margin-bottom: 1rem;
-    display: block;
-  }
-  .exp-bul-toggle:hover { color: var(--gold); }
-
-  /* Hero skills - two group layout */
-  .hero-skills-wrap {
-    display: flex;
-    align-items: flex-start;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
-  }
-  .hero-skills-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .hero-skills-label {
-    font-size: 0.6rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text3);
-    font-weight: 500;
-  }
-  .hero-skills-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-  }
-  .hero-skills-divider { display: none; }
-  .sk-web { color: #0a0a0c; border-color: rgba(126, 212, 200, 0.9); background: rgba(126, 212, 200, 0.78); }
-  .sk-data { color: #0a0a0c; border-color: rgba(168, 159, 212, 0.9); background: rgba(168, 159, 212, 0.78); }
-
-  .contact-options-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.75rem;
-    max-width: 680px;
-  }
-  @media (max-width: 520px) {
-    .contact-options-grid { grid-template-columns: 1fr; }
-  }
-
-  .feat-proj-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-    margin-bottom: 2rem;
-  }
-  .feat-proj-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    transition: border-color 0.2s, transform 0.2s;
-    cursor: pointer;
-  }
-  .feat-proj-card:hover {
-    border-color: var(--gold-border);
-    transform: translateY(-2px);
-  }
-  .feat-proj-cat {
-    font-size: 0.6rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 600;
-  }
-  .feat-proj-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: var(--text);
-    line-height: 1.25;
-  }
-  .feat-proj-impact {
-    font-size: 0.8rem;
-    color: var(--text2);
-    font-weight: 300;
-    line-height: 1.6;
-    flex: 1;
-  }
-  .feat-proj-link {
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 500;
-    margin-top: auto;
-  }
-  .proj-cta-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-    padding-top: 0.5rem;
-  }
-  .proj-cta-note {
-    font-size: 0.8rem;
-    color: var(--text3);
-    font-weight: 300;
-  }
-
-  /* Blog list */
-  .blog-list {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-  }
-  .blog-list-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-    padding: 1.1rem 1.5rem;
-    border-bottom: 1px solid var(--border);
-    cursor: pointer;
-    transition: background 0.2s;
-    text-decoration: none;
-  }
-  .blog-list-item:last-child { border-bottom: none; }
-  .blog-list-item:hover { background: var(--bg2); }
-  .blog-list-left {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex: 1;
-    min-width: 0;
-  }
-  .blog-list-tag {
-    font-size: 0.6rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 600;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .blog-list-title {
-    font-size: 0.9rem;
-    color: var(--text);
-    font-weight: 300;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .blog-list-arrow {
-    font-size: 0.75rem;
-    color: var(--text3);
-    flex-shrink: 0;
-    transition: color 0.2s;
-  }
-  .blog-list-item:hover .blog-list-arrow { color: var(--gold); }
-
-  /* Footer redesign */
-  .footer-inner {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 2rem;
-    align-items: center;
-  }
-  .footer-left {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .footer-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--text);
-  }
-  .footer-icons {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .footer-icon {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text3);
-    text-decoration: none;
-    border-radius: 6px;
-    transition: color 0.2s, background 0.2s;
-  }
-  .footer-icon:hover {
-    color: var(--gold);
-    background: var(--gold-dim);
-  }
-  .footer-icon svg {
-    width: 15px;
-    height: 15px;
-    stroke: currentColor;
-    fill: none;
-    stroke-width: 1.75;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-  .footer-icon-fill svg {
-    fill: currentColor;
-    stroke: none;
-  }
-  .footer-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.6rem;
-  }
-  .footer-links {
-    display: flex;
-    gap: 1.25rem;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-  }
-  .footer-links a {
-    font-size: 0.72rem;
-    color: var(--text3);
-    text-decoration: none;
-    letter-spacing: 0.05em;
-    transition: color 0.2s;
-  }
-  .footer-links a:hover { color: var(--gold); }
-  .footer-copy {
-    font-size: 0.68rem;
-    color: var(--text3);
-  }
-
-  @media (max-width: 600px) {
-    .footer-inner { grid-template-columns: 1fr; }
-    .footer-right { align-items: flex-start; }
-    .feat-proj-grid { grid-template-columns: 1fr; }
-  }
-</style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z64DK1NL6"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8Z64DK1NL6');</script>
@@ -383,7 +64,7 @@
   <a href="#certifications" onclick="closeMob()">Certifications</a>
   <a href="#blog" onclick="closeMob()">Blog</a>
   <a href="#contact" onclick="closeMob()">Contact</a>
-  <a href="/work-with-me" onclick="closeMob()" style="color:var(--gold)">Work With Me</a>
+  <a href="/work-with-me" onclick="closeMob()" class="nav-gold">Work With Me</a>
 </div>
 
 <main>
@@ -465,26 +146,26 @@
 
     <div class="feat-proj-grid fade">
 
-      <div class="feat-proj-card" onclick="window.location.href='/projects/invoice-processing-automation'">
+      <a class="feat-proj-card" href="/projects/invoice-processing-automation">
         <div class="feat-proj-cat">Automation</div>
         <div class="feat-proj-name">Invoice Processing Automation</div>
         <div class="feat-proj-impact">45 minutes per batch became 5. 89% time reduction across 15+ weekly batches.</div>
         <div class="feat-proj-link">View project &rarr;</div>
-      </div>
+      </a>
 
-      <div class="feat-proj-card" onclick="window.location.href='/projects/records-deduplication-and-cost-analysis'">
+      <a class="feat-proj-card" href="/projects/records-deduplication-and-cost-analysis">
         <div class="feat-proj-cat">Process Improvement</div>
         <div class="feat-proj-name">Records Deduplication &amp; Cost Analysis</div>
         <div class="feat-proj-impact">$6,000+ annual savings identified. 75% reduction in ongoing review time.</div>
         <div class="feat-proj-link">View project &rarr;</div>
-      </div>
+      </a>
 
-      <div class="feat-proj-card" onclick="window.location.href='/projects/portfolio-site'">
+      <a class="feat-proj-card" href="/projects/portfolio-site">
         <div class="feat-proj-cat">Development</div>
         <div class="feat-proj-name">This Portfolio Site</div>
         <div class="feat-proj-impact">Hand-coded in HTML, CSS, and JavaScript. Zero frameworks, zero dependencies.</div>
         <div class="feat-proj-link">View project &rarr;</div>
-      </div>
+      </a>
 
     </div>
 
@@ -592,7 +273,7 @@
 
     </div>
 
-    <div style="margin-top:2rem" class="fade">
+    <div class="mt-2 fade">
       <a href="https://maddierochovansky.com/assets/madison_rochovansky_resume.pdf" target="_blank" rel="noopener" class="btn-outline">Download Resume &rarr;</a>
     </div>
 
@@ -651,29 +332,29 @@
       <div>
         <div class="cert-edu-col-label">Recognition</div>
         <div class="cert-recog-item"><span class="cert-recog-dot"></span><span class="cert-recog-text"><strong class="info-card-award-title">ELP Learning Award, Q3 2024</strong> &middot; Recognized for continuously building new skills, applying lessons learned, and using problem-solving to deliver stronger results.</span></div>
-        <div class="cert-recog-item" style="margin-top:0.6rem"><span class="cert-recog-dot"></span><span class="cert-recog-text"><strong class="info-card-award-title">ELP Initiative Award, Q2 2025</strong> &middot; Recognized for identifying issues, proposing solutions, and improving processes without waiting for direction.</span></div>
+        <div class="cert-recog-item cert-recog-item--spaced"><span class="cert-recog-dot"></span><span class="cert-recog-text"><strong class="info-card-award-title">ELP Initiative Award, Q2 2025</strong> &middot; Recognized for identifying issues, proposing solutions, and improving processes without waiting for direction.</span></div>
       </div>
     </div>
 
     <div class="cert-featured fade">
-      <div class="cert-feat-card" style="background:rgba(201,168,76,0.08);border-color:rgba(201,168,76,0.25)">
-        <div class="cert-feat-label" style="color:#c9a84c">Process &amp; Operations</div>
+      <div class="cert-feat-card cert-feat-card--gold">
+        <div class="cert-feat-label cert-feat-label--gold">Process &amp; Operations</div>
         <div class="cert-feat-name">Certified Lean Six Sigma Green Belt</div>
         <div class="cert-feat-meta">SSAA</div>
       </div>
-      <div class="cert-feat-card" style="background:rgba(212,160,126,0.08);border-color:rgba(212,160,126,0.25)">
-        <div class="cert-feat-label" style="color:#d4a07e">Risk &amp; Compliance</div>
+      <div class="cert-feat-card cert-feat-card--orange">
+        <div class="cert-feat-label cert-feat-label--orange">Risk &amp; Compliance</div>
         <div class="cert-feat-name">Certified Risk Management FMEA ISO 31000 Expert</div>
         <div class="cert-feat-meta">SSAA</div>
       </div>
-      <div class="cert-feat-card" style="background:rgba(136,201,160,0.08);border-color:rgba(136,201,160,0.25)">
-        <div class="cert-feat-label" style="color:#88c9a0">Revenue Operations &amp; Data</div>
+      <div class="cert-feat-card cert-feat-card--green">
+        <div class="cert-feat-label cert-feat-label--green">Revenue Operations &amp; Data</div>
         <div class="cert-feat-name">Revenue Operations</div>
         <div class="cert-feat-meta">HubSpot Academy</div>
       </div>
     </div>
 
-    <div class="fade" style="margin-bottom:2rem">
+    <div class="fade mb-2">
       <button class="btn-outline" onclick="toggleAllCerts(this)">View all certifications</button>
     </div>
 
@@ -764,26 +445,26 @@
 
     <div class="blog-grid fade">
 
-      <div class="blog-card blog-card-link" onclick="window.open('https://open.substack.com/pub/theknownissues/p/nobody-is-hungry-but-everyone-is?utm_campaign=post-expanded-share&utm_medium=post%20viewer','_blank')">
+      <a class="blog-card blog-card-link" href="https://open.substack.com/pub/theknownissues/p/nobody-is-hungry-but-everyone-is?utm_campaign=post-expanded-share&utm_medium=post%20viewer" target="_blank" rel="noopener">
         <div class="blog-tag">Culture</div>
         <div class="blog-title">Nobody Is Hungry but Everyone Is Losing Their Mind</div>
         <div class="blog-desc">John Calhoun built his mice a utopia. Food, water, shelter, no predators. The only thing missing was space. What followed was not starvation. It was social collapse.</div>
         <div class="blog-footer"><span class="blog-status blog-status-gold">Read on Substack &rarr;</span></div>
-      </div>
+      </a>
 
-      <div class="blog-card blog-card-link" onclick="window.open('https://open.substack.com/pub/theknownissues/p/the-ship-of-theseus-problem-but-for?r=7vey64&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true','_blank')">
+      <a class="blog-card blog-card-link" href="https://open.substack.com/pub/theknownissues/p/the-ship-of-theseus-problem-but-for?r=7vey64&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true" target="_blank" rel="noopener">
         <div class="blog-tag">Process</div>
         <div class="blog-title">The Ship of Theseus Problem, but for SOPs</div>
         <div class="blog-desc">If a procedure has been patched, revised, and quietly edited enough times that nothing from the original remains, is it still the same process?</div>
         <div class="blog-footer"><span class="blog-status blog-status-gold">Read on Substack &rarr;</span></div>
-      </div>
+      </a>
 
-      <div class="blog-card blog-card-link" onclick="window.open('https://open.substack.com/pub/theknownissues/p/goodharts-law-is-the-only-management?utm_campaign=post-expanded-share&utm_medium=post%20viewer','_blank')">
+      <a class="blog-card blog-card-link" href="https://open.substack.com/pub/theknownissues/p/goodharts-law-is-the-only-management?utm_campaign=post-expanded-share&utm_medium=post%20viewer" target="_blank" rel="noopener">
         <div class="blog-tag">Metrics</div>
         <div class="blog-title">Goodhart's Law Is the Only Management Theory You Actually Need</div>
         <div class="blog-desc">When a measure becomes a target it stops being a good measure. Soviet factories were once judged by the number of nails produced. So they produced millions of tiny useless nails.</div>
         <div class="blog-footer"><span class="blog-status blog-status-gold">Read on Substack &rarr;</span></div>
-      </div>
+      </a>
 
     </div>
 
@@ -799,7 +480,7 @@
   <div class="wrap">
     <div class="label fade">Contact</div>
     <h2 class="sec-title fade">Got something <em>broken?</em><br>Let's fix it.</h2>
-    <p class="contact-intro fade" style="max-width:680px;margin-bottom:1.75rem">Open to full-time remote roles in Business Operations, Process Improvement, or RevOps. If the problem does not have a clean name yet, those are usually the most interesting ones.</p>
+    <p class="contact-intro fade">Open to full-time remote roles in Business Operations, Process Improvement, or RevOps. If the problem does not have a clean name yet, those are usually the most interesting ones.</p>
     <div class="contact-options-grid fade">
       <a href="/cdn-cgi/l/email-protection#a4c9c5c0c0cdc18ad6cbc7cccbd2c5cad7cfdde4c5d0cbc9cdc7c9c5cdc88acdcb" class="contact-opt">
         <div class="contact-opt-icon">@</div>
@@ -827,7 +508,7 @@
      FOOTER
      ============================================================ -->
 <footer>
-  <div class="wrap" style="width:100%">
+  <div class="wrap footer-wrap">
     <div class="footer-inner">
       <div class="footer-left">
         <div class="footer-name">Madison Rochovansky</div>

@@ -2379,3 +2379,366 @@ footer {
   .star-grid { grid-template-columns: 1fr; }
   .related-grid { grid-template-columns: 1fr; }
 }
+
+
+/* =============================================================================
+   23. INDEX PAGE — HOMEPAGE-SPECIFIC COMPONENTS
+   ============================================================================= */
+
+/* Nav dropdown */
+.nav-dropdown { position: relative; }
+.nav-dropdown-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text2);
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  padding: 0;
+  transition: color 0.2s;
+}
+.nav-dropdown-btn:hover { color: var(--gold); }
+.nav-dropdown-btn svg {
+  width: 10px;
+  height: 10px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.2s;
+}
+.nav-dropdown:hover .nav-dropdown-btn svg { transform: rotate(180deg); }
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  right: 0;
+  background: rgba(17, 17, 20, 0.97);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border2);
+  border-radius: 10px;
+  padding: 0.4rem;
+  min-width: 160px;
+  z-index: 200;
+}
+.nav-dropdown:hover .nav-dropdown-menu { display: block; }
+.nav-dropdown-menu a {
+  display: block;
+  padding: 0.55rem 0.9rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text2);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+.nav-dropdown-menu a:hover {
+  background: var(--gold-dim);
+  color: var(--gold);
+}
+
+/* Experience bullet collapse */
+.exp-bul-hidden { display: none; }
+.exp-buls.expanded .exp-bul-hidden { display: list-item; }
+.exp-bul-toggle {
+  background: none;
+  border: none;
+  font-size: 0.72rem;
+  color: var(--text3);
+  cursor: pointer;
+  padding: 0.3rem 0;
+  font-family: 'DM Sans', sans-serif;
+  transition: color 0.2s;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+.exp-bul-toggle:hover { color: var(--gold); }
+
+/* Hero skills - two group layout */
+.hero-skills-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.hero-skills-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.hero-skills-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text3);
+  font-weight: 500;
+}
+.hero-skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.hero-skills-divider { display: none; }
+.sk-web { color: #0a0a0c; border-color: rgba(126, 212, 200, 0.9); background: rgba(126, 212, 200, 0.78); }
+.sk-data { color: #0a0a0c; border-color: rgba(168, 159, 212, 0.9); background: rgba(168, 159, 212, 0.78); }
+
+.contact-options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  max-width: 680px;
+}
+@media (max-width: 520px) {
+  .contact-options-grid { grid-template-columns: 1fr; }
+}
+
+.feat-proj-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+.feat-proj-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+.feat-proj-card:hover {
+  border-color: var(--gold-border);
+  transform: translateY(-2px);
+}
+.feat-proj-cat {
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+}
+.feat-proj-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.25;
+}
+.feat-proj-impact {
+  font-size: 0.8rem;
+  color: var(--text2);
+  font-weight: 300;
+  line-height: 1.6;
+  flex: 1;
+}
+.feat-proj-link {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-top: auto;
+}
+.proj-cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
+}
+.proj-cta-note {
+  font-size: 0.8rem;
+  color: var(--text3);
+  font-weight: 300;
+}
+
+/* Blog list */
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.blog-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+.blog-list-item:last-child { border-bottom: none; }
+.blog-list-item:hover { background: var(--bg2); }
+.blog-list-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 0;
+}
+.blog-list-tag {
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.blog-list-title {
+  font-size: 0.9rem;
+  color: var(--text);
+  font-weight: 300;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.blog-list-arrow {
+  font-size: 0.75rem;
+  color: var(--text3);
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+.blog-list-item:hover .blog-list-arrow { color: var(--gold); }
+
+/* Footer redesign */
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: center;
+}
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.footer-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text);
+}
+.footer-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.footer-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text3);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+.footer-icon:hover {
+  color: var(--gold);
+  background: var(--gold-dim);
+}
+.footer-icon svg {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.footer-icon-fill svg {
+  fill: currentColor;
+  stroke: none;
+}
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6rem;
+}
+.footer-links {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.footer-links a {
+  font-size: 0.72rem;
+  color: var(--text3);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--gold); }
+.footer-copy {
+  font-size: 0.68rem;
+  color: var(--text3);
+}
+
+@media (max-width: 600px) {
+  .footer-inner { grid-template-columns: 1fr; }
+  .footer-right { align-items: flex-start; }
+  .feat-proj-grid { grid-template-columns: 1fr; }
+}
+
+
+/* =============================================================================
+   24. UTILITIES & MODIFIER CLASSES
+   ============================================================================= */
+
+/* Spacing utilities (replaces inline margin styles) */
+.mt-2  { margin-top: 2rem; }
+.mb-2  { margin-bottom: 2rem; }
+
+/* Mobile nav gold link */
+.mob-menu .nav-gold { color: var(--gold); }
+
+/* Contact intro constrained width */
+.contact-intro { max-width: 680px; margin-bottom: 1.75rem; }
+
+/* Second cert recognition item spacing */
+.cert-recog-item--spaced { margin-top: 0.6rem; }
+
+/* Cert featured card color variants */
+.cert-feat-card--gold   { background: rgba(201,168,76,0.08);  border-color: rgba(201,168,76,0.25); }
+.cert-feat-card--orange { background: rgba(212,160,126,0.08); border-color: rgba(212,160,126,0.25); }
+.cert-feat-card--green  { background: rgba(136,201,160,0.08); border-color: rgba(136,201,160,0.25); }
+
+.cert-feat-label--gold   { color: #c9a84c; }
+.cert-feat-label--orange { color: #d4a07e; }
+.cert-feat-label--green  { color: #88c9a0; }
+
+/* feat-proj-card as <a> tag — reset link styles */
+a.feat-proj-card {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+}
+
+/* blog-card as <a> tag — reset link styles */
+a.blog-card {
+  text-decoration: none;
+  color: inherit;
+}
