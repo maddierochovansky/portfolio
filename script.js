@@ -27,6 +27,7 @@
   // ==========================================================================
 
   var cv = document.getElementById('meteors');
+  if (cv) {
   var ctx = cv.getContext('2d');
 
   function rsz() {
@@ -114,37 +115,37 @@
       }
     });
   }, { threshold: 0 }).observe(cv);
+  } // end if (cv)
 
 
   // ==========================================================================
   // NAVIGATION - mobile menu
   // ==========================================================================
 
-  var _mob = document.getElementById('mob-menu');
-  var _ham = document.getElementById('ham');
-
   function toggleMob() {
-    if (_mob) _mob.classList.toggle('open');
+    document.getElementById('mob-menu').classList.toggle('open');
   }
 
   function closeMob() {
-    if (_mob) _mob.classList.remove('open');
+    document.getElementById('mob-menu').classList.remove('open');
   }
 
   // close mobile menu when clicking outside
   document.addEventListener('click', function (e) {
+    var m = document.getElementById('mob-menu');
     if (
-      _mob && _mob.classList.contains('open') &&
-      !_mob.contains(e.target) &&
-      _ham && !_ham.contains(e.target)
+      m.classList.contains('open') &&
+      !m.contains(e.target) &&
+      !document.getElementById('ham').contains(e.target)
     ) {
-      _mob.classList.remove('open');
+      m.classList.remove('open');
     }
   });
 
   // close mobile menu on scroll
   window.addEventListener('scroll', function () {
-    if (_mob && _mob.classList.contains('open')) _mob.classList.remove('open');
+    var m = document.getElementById('mob-menu');
+    if (m.classList.contains('open')) m.classList.remove('open');
   }, { passive: true });
 
   // active nav link highlight on scroll
@@ -342,6 +343,7 @@
 
   // ==========================================================================
   // EXPOSE GLOBALS
+  // (called from inline onclick handlers in HTML - will be cleaned up later)
   // ==========================================================================
 
   window.filterProj      = filterProj;

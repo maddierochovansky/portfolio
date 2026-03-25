@@ -50,7 +50,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z64DK1NL6"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8Z64DK1NL6');</script>
 <style>
-
+  /* Project list card styles specific to this page */
   .proj-list-card {
     display: flex;
     align-items: center;
@@ -234,7 +234,7 @@
     });
 
     var allBtn = document.createElement('button');
-    allBtn.className = 'proj-filter-btn active';
+    allBtn.className = 'proj-filter-btn active show';
     allBtn.dataset.cat = 'all';
     allBtn.innerHTML = 'All <span class="proj-filter-count">(' + counts.all + ')</span>';
     allBtn.onclick = function () { setFilter('all', allBtn); };
@@ -243,7 +243,7 @@
     CAT_ORDER.forEach(function (cat) {
       if (!counts[cat]) return;
       var btn = document.createElement('button');
-      btn.className = 'proj-filter-btn';
+      btn.className = 'proj-filter-btn show';
       btn.dataset.cat = cat;
       btn.innerHTML = CAT_LABELS[cat] + ' <span class="proj-filter-count">(' + counts[cat] + ')</span>';
       btn.onclick = function () { setFilter(cat, btn); };
@@ -277,7 +277,7 @@
 
   function buildCard(p) {
     var card = document.createElement('a');
-    card.className = 'proj-list-card fade';
+    card.className = 'proj-list-card fade show';
     card.href = '/projects/' + p.slug;
     card.dataset.cat = p.category;
     card.dataset.name = p.name.toLowerCase();
