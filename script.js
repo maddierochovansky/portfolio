@@ -267,8 +267,53 @@ function closeMob() {
 
 
   // ==========================================================================
-  // CERTIFICATIONS - expand / collapse groups
+  // CERTIFICATIONS - render from data + expand / collapse groups
   // ==========================================================================
+
+  function renderCertifications() {
+    if (typeof CERTIFICATIONS === 'undefined') return;
+
+    // Featured cards
+    var featEl = document.getElementById('cert-featured');
+    if (featEl) {
+      featEl.innerHTML = CERTIFICATIONS.featured.map(function (cert) {
+        var ac = cert.accent === 'copper' ? 'orange' : cert.accent;
+        var inner =
+          '<div class="cert-feat-card cert-feat-card--' + ac + '">' +
+            '<div class="cert-feat-label cert-feat-label--' + ac + '">' + cert.category + '</div>' +
+            '<div class="cert-feat-name">' + cert.name + '</div>' +
+            '<div class="cert-feat-meta">' + cert.issuer + '</div>' +
+          '</div>';
+        return cert.link
+          ? '<a href="' + cert.link + '" target="_blank" rel="noopener" class="cert-feat-link">' + inner + '</a>'
+          : inner;
+      }).join('');
+    }
+
+    // Group items
+    var groupsEl = document.getElementById('cert-groups-all');
+    if (groupsEl) {
+      groupsEl.innerHTML = CERTIFICATIONS.groups.map(function (group) {
+        var items = group.items.map(function (item) {
+          var nameEl = item.link
+            ? '<a href="' + item.link + '" target="_blank" rel="noopener" class="cert-link">' + item.name + '</a>'
+            : '<span class="cert-name">' + item.name + '</span>';
+          return '<div class="cert-item">' + nameEl + '<span class="cert-meta">' + item.issuer + '</span></div>';
+        }).join('');
+        return (
+          '<div class="cert-group">' +
+            '<button class="cert-group-header" aria-expanded="false" onclick="toggleCert(this.parentElement)">' +
+              '<div><span class="cert-group-name">' + group.name + '</span><span class="cert-count">' + group.items.length + '</span></div>' +
+              '<span class="cert-chevron"></span>' +
+            '</button>' +
+            '<div class="cert-group-body">' + items + '</div>' +
+          '</div>'
+        );
+      }).join('');
+    }
+  }
+
+  renderCertifications();
 
   function toggleCert(el) {
     var isOpen = el.classList.toggle('open');

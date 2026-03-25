@@ -1531,6 +1531,26 @@ section {
   flex-shrink: 0;
 }
 
+.cert-feat-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.cert-feat-link:hover .cert-feat-card {
+  opacity: 0.8;
+}
+
+.cert-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(201, 168, 76, 0.35);
+  text-underline-offset: 2px;
+}
+.cert-link:hover {
+  color: var(--gold);
+  text-decoration-color: var(--gold);
+}
+
 
 /* =============================================================================
    15. CONTACT SECTION
