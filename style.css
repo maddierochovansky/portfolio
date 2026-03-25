@@ -2742,3 +2742,77 @@ a.blog-card {
   text-decoration: none;
   color: inherit;
 }
+
+
+/* =============================================================================
+   25. WORK-WITH-ME PAGE — SPECIFIC COMPONENTS
+   ============================================================================= */
+
+/* How it works — two column layout */
+.how-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .how-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* Trust row spacing */
+.trust-row { margin-bottom: 2.75rem; }
+
+/* Button no-wrap modifier */
+.btn-nowrap { white-space: nowrap; }
+
+/* Fit cards — Good fit / Not a fit */
+.fit-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.fit-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.fit-card-label {
+  font-size: 0.63rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.fit-card-label--gold  { color: var(--gold); }
+.fit-card-label--muted { color: var(--text3); }
+
+.fit-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fit-item {
+  font-size: 0.855rem;
+  color: var(--text2);
+  font-weight: 300;
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.fit-item::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.fit-item--gold::before  { color: var(--gold); }
+.fit-item--muted::before { color: var(--text3); }

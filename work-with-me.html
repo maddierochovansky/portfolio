@@ -10,6 +10,8 @@
 <meta property="og:description" content="Freelance operations, workflow automation, AP/AR setup, Excel reporting, SharePoint builds, and web and SEO work. Project-based. No retainer required.">
 <meta property="og:url" content="https://maddierochovansky.com/work-with-me">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://maddierochovansky.com/assets/og-image.png">
+<meta name="twitter:image" content="https://maddierochovansky.com/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Work With Me - Maddie Rochovansky">
 <meta name="twitter:description" content="Freelance operations, workflow automation, AP/AR setup, Excel reporting, SharePoint builds, and web and SEO work. Project-based. No retainer required.">
@@ -35,11 +37,22 @@
 
 <nav>
   <a href="/" class="nav-logo">Maddie Rochovansky</a>
-  <a href="/" class="nav-back">
-    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
-    Back to portfolio
-  </a>
+  <ul class="nav-links">
+    <li><a href="/#about">About</a></li>
+    <li><a href="/projects">Projects</a></li>
+    <li><a href="/" class="nav-gold">Portfolio</a></li>
+  </ul>
+  <button class="ham" id="ham" onclick="toggleMob()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mob-menu" id="mob-menu">
+  <a href="/#about" onclick="closeMob()">About</a>
+  <a href="/projects" onclick="closeMob()">Projects</a>
+  <a href="/#contact" onclick="closeMob()">Contact</a>
+  <a href="/" onclick="closeMob()" class="nav-gold">Portfolio</a>
+</div>
 
 <main>
 
@@ -52,7 +65,7 @@
 
     <p class="hero-sub fade">Operations problems do not care about org charts. If something is broken, undocumented, or taking three times longer than it should, that is a solvable problem. I take on project-based freelance work across ops, automation, finance, and web.</p>
 
-    <div class="trust-row fade" style="margin-bottom:2.75rem">
+    <div class="trust-row fade">
       <div class="trust-cell">
         <div class="trust-num">89%</div>
         <div class="trust-label">Batch processing time reduction</div>
@@ -203,7 +216,7 @@
   <div class="wrap">
     <div class="label fade">Process</div>
     <h2 class="sec-title fade">How it <em>works</em></h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start" class="fade">
+    <div class="how-grid fade">
       <div class="process-list">
 
         <div class="process-item">
@@ -252,44 +265,22 @@
 
       </div>
 
-      <div style="display:flex;flex-direction:column;gap:1rem">
-        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem">
-          <div style="font-size:0.63rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.75rem">Good fit for</div>
-          <div style="display:flex;flex-direction:column;gap:0.5rem">
-            <div style="font-size:0.855rem;color:var(--text2);font-weight:300;padding-left:1rem;position:relative">
-              <span style="position:absolute;left:0;color:var(--gold);font-size:1rem;line-height:1.4">&middot;</span>
-              Small to mid-size businesses with operational problems that do not need a full-time hire
-            </div>
-            <div style="font-size:0.855rem;color:var(--text2);font-weight:300;padding-left:1rem;position:relative">
-              <span style="position:absolute;left:0;color:var(--gold);font-size:1rem;line-height:1.4">&middot;</span>
-              Teams that have outgrown their current process and need someone to rebuild it properly
-            </div>
-            <div style="font-size:0.855rem;color:var(--text2);font-weight:300;padding-left:1rem;position:relative">
-              <span style="position:absolute;left:0;color:var(--gold);font-size:1rem;line-height:1.4">&middot;</span>
-              Founders or operators who know what is broken but do not have the time to fix it
-            </div>
-            <div style="font-size:0.855rem;color:var(--text2);font-weight:300;padding-left:1rem;position:relative">
-              <span style="position:absolute;left:0;color:var(--gold);font-size:1rem;line-height:1.4">&middot;</span>
-              Anyone who needs a real deliverable, not a deck about a deliverable
-            </div>
+      <div class="fit-cards">
+        <div class="fit-card">
+          <div class="fit-card-label fit-card-label--gold">Good fit for</div>
+          <div class="fit-items">
+            <div class="fit-item fit-item--gold">Small to mid-size businesses with operational problems that do not need a full-time hire</div>
+            <div class="fit-item fit-item--gold">Teams that have outgrown their current process and need someone to rebuild it properly</div>
+            <div class="fit-item fit-item--gold">Founders or operators who know what is broken but do not have the time to fix it</div>
+            <div class="fit-item fit-item--gold">Anyone who needs a real deliverable, not a deck about a deliverable</div>
           </div>
         </div>
-
-        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem">
-          <div style="font-size:0.63rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.75rem">Not a fit if</div>
-          <div style="display:flex;flex-direction:column;gap:0.5rem">
-            <div style="font-size:0.855rem;color:var(--text2);font-weight:300;padding-left:1rem;position:relative">
-              <span style="position:absolute;left:0;color:var(--text3);font-size:1rem;line-height:1.4">&middot;</span>
-              You need someone available 40 hours a week indefinitely
-            </div>
-            <div style="font-size:0.855rem;color:var(--text2);font-weight:300;padding-left:1rem;position:relative">
-              <span style="position:absolute;left:0;color:var(--text3);font-size:1rem;line-height:1.4">&middot;</span>
-              The project has no defined outcome and no clear decision maker
-            </div>
-            <div style="font-size:0.855rem;color:var(--text2);font-weight:300;padding-left:1rem;position:relative">
-              <span style="position:absolute;left:0;color:var(--text3);font-size:1rem;line-height:1.4">&middot;</span>
-              You need custom software development or enterprise-level IT infrastructure
-            </div>
+        <div class="fit-card">
+          <div class="fit-card-label fit-card-label--muted">Not a fit if</div>
+          <div class="fit-items">
+            <div class="fit-item fit-item--muted">You need someone available 40 hours a week indefinitely</div>
+            <div class="fit-item fit-item--muted">The project has no defined outcome and no clear decision maker</div>
+            <div class="fit-item fit-item--muted">You need custom software development or enterprise-level IT infrastructure</div>
           </div>
         </div>
       </div>
@@ -305,7 +296,7 @@
     <h2 class="sec-title fade">See the <em>actual work</em></h2>
     <div class="portfolio-callout fade">
       <p class="callout-text">Every project on my portfolio site is something I built. The STAR format shows the situation, what I was asked to do, what I actually did, and what the result was. <strong>No vague bullets. No inflated scope.</strong> If you want to know what working with me looks like, that is the place to look.</p>
-      <a href="/#projects" class="btn-gold" style="white-space:nowrap">View Projects</a>
+      <a href="/#projects" class="btn-gold btn-nowrap">View Projects</a>
     </div>
   </div>
 </section>
@@ -418,6 +409,7 @@
   <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
 </button>
 
+<script src="script.js"></script>
 <script src="work-with-me.js"></script>
 </body>
 </html>
