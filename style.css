@@ -1354,11 +1354,17 @@ section {
   background: var(--bg2);
   transition: background 0.2s;
   user-select: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  font: inherit;
+  color: inherit;
 }
 
 .cert-group-header:hover {
   background: var(--bg3);
 }
+
 
 .cert-group-name {
   font-size: 0.72rem;
