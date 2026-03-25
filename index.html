@@ -27,6 +27,7 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8Z64DK1NL6');</script>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 <div id="starfield"></div>
 <canvas id="meteors" aria-hidden="true"></canvas>
 
@@ -68,6 +69,7 @@
 </div>
 
 <main>
+  <main id="main-content"></main>
 
 <!-- ============================================================
      HERO
@@ -551,11 +553,11 @@
 <!-- ============================================================
      MODAL
      ============================================================ -->
-<div class="modal-overlay" id="contact-modal" onclick="handleModalClick(event)">
+<div class="modal-overlay" id="contact-modal" onclick="handleModalClick(event)" role="dialog" aria-modal="true" aria-labelledby="modal-dialog-title">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal()">&#x2715;</button>
     <div id="modal-form-wrap">
-      <div class="modal-title">Send a Message</div>
+      <div class="modal-title" id="modal-dialog-title">Send a Message</div>
       <div class="modal-sub"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="771a1613131e12590518141f18011619041c0e371603181a1e141a161e1b591e18">[email&#160;protected]</a> &middot; usually responds within a day</div>
       <form id="contact-form" action="https://formspree.io/f/xvzwovee" method="POST">
         <div class="form-row">
@@ -600,7 +602,7 @@
       <div><div class="chat-head-name">Ask Maddie</div><div class="chat-head-sub">type anything, or pick something below</div></div>
       <button class="chat-close" onclick="toggleChat()" aria-label="Close chat">&#x2715;</button>
     </div>
-    <div id="chat-messages">
+    <div id="chat-messages" role="log" aria-live="polite" aria-label="Chat conversation">
       <div class="msg msg-maddie">Hi. I am a bot that knows a lot about Maddie. Ask me anything about her background, what she has built, or what she is looking for. Or just say something weird and see what happens.</div>
     </div>
     <div class="chat-suggestions" id="chat-suggestions"></div>
