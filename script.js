@@ -148,6 +148,42 @@
     if (m.classList.contains('open')) m.classList.remove('open');
   }, { passive: true });
 
+  // ==========================================================================
+  // NAV DROPDOWN - JS click toggle
+  // CSS :hover alone breaks on touch devices and has a gap issue on desktop
+  // ==========================================================================
+
+  var _dropdownBtn  = document.querySelector('.nav-dropdown-btn');
+  var _dropdownMenu = document.querySelector('.nav-dropdown-menu');
+
+  if (_dropdownBtn && _dropdownMenu) {
+    _dropdownBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = _dropdownMenu.classList.toggle('open');
+      _dropdownBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    _dropdownMenu.addEventListener('click', function () {
+      _dropdownMenu.classList.remove('open');
+      _dropdownBtn.setAttribute('aria-expanded', 'false');
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!_dropdownBtn.contains(e.target) && !_dropdownMenu.contains(e.target)) {
+        _dropdownMenu.classList.remove('open');
+        _dropdownBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && _dropdownMenu.classList.contains('open')) {
+        _dropdownMenu.classList.remove('open');
+        _dropdownBtn.setAttribute('aria-expanded', 'false');
+        _dropdownBtn.focus();
+      }
+    });
+  }
+
   // active nav link highlight on scroll
   var sections = document.querySelectorAll('section[id]');
   var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
