@@ -267,6 +267,20 @@
     if (hdr) hdr.setAttribute('aria-expanded', String(isOpen));
   }
 
+  function toggleBuls(id, btn) {
+    var ul = document.getElementById(id);
+    var expanded = ul.classList.toggle('expanded');
+   btn.textContent = expanded ? btn.dataset.less : btn.dataset.more;
+  }
+  window.toggleBuls = toggleBuls;
+
+  function toggleAllCerts(btn) {
+    var el = document.getElementById('cert-groups-all');
+    var visible = el.style.display === 'block';
+    el.style.display = visible ? 'none' : 'block';
+    btn.textContent = visible ? 'View all certifications' : 'Hide certifications';
+  }
+  window.toggleAllCerts = toggleAllCerts;
 
   // ==========================================================================
   // EXPERIENCE - expand / collapse chips
