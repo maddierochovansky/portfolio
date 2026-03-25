@@ -120,30 +120,31 @@
   // NAVIGATION - mobile menu
   // ==========================================================================
 
+  var _mob = document.getElementById('mob-menu');
+  var _ham = document.getElementById('ham');
+
   function toggleMob() {
-    document.getElementById('mob-menu').classList.toggle('open');
+    if (_mob) _mob.classList.toggle('open');
   }
 
   function closeMob() {
-    document.getElementById('mob-menu').classList.remove('open');
+    if (_mob) _mob.classList.remove('open');
   }
 
   // close mobile menu when clicking outside
   document.addEventListener('click', function (e) {
-    var m = document.getElementById('mob-menu');
     if (
-      m.classList.contains('open') &&
-      !m.contains(e.target) &&
-      !document.getElementById('ham').contains(e.target)
+      _mob && _mob.classList.contains('open') &&
+      !_mob.contains(e.target) &&
+      _ham && !_ham.contains(e.target)
     ) {
-      m.classList.remove('open');
+      _mob.classList.remove('open');
     }
   });
 
   // close mobile menu on scroll
   window.addEventListener('scroll', function () {
-    var m = document.getElementById('mob-menu');
-    if (m.classList.contains('open')) m.classList.remove('open');
+    if (_mob && _mob.classList.contains('open')) _mob.classList.remove('open');
   }, { passive: true });
 
   // active nav link highlight on scroll
@@ -341,7 +342,6 @@
 
   // ==========================================================================
   // EXPOSE GLOBALS
-  // (called from inline onclick handlers in HTML - will be cleaned up later)
   // ==========================================================================
 
   window.filterProj      = filterProj;

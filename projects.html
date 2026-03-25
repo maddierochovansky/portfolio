@@ -10,6 +10,9 @@
 <meta property="og:description" content="Operations, automation, process improvement, data, systems, and web projects. Every piece of work documented with full STAR breakdowns.">
 <meta property="og:url" content="https://maddierochovansky.com/projects">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://maddierochovansky.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://maddierochovansky.com/assets/og-image.png">
 <link rel="canonical" href="https://maddierochovansky.com/projects">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0c'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='18' fill='%23c9a84c'%3EM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,6 +49,106 @@
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z64DK1NL6"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8Z64DK1NL6');</script>
+<style>
+
+  .proj-list-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: clamp(1.25rem, 3vw, 1.75rem) clamp(1.25rem, 3vw, 2rem);
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s;
+  }
+  .proj-list-card:last-child { border-bottom: none; }
+  .proj-list-card:hover { background: var(--bg2); }
+  .proj-list-card-inner { flex: 1; min-width: 0; }
+  .proj-list-card-top { margin-bottom: 0.75rem; }
+  .proj-list-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.4rem;
+  }
+  .proj-list-card-cat {
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .proj-list-card-date {
+    font-size: 0.7rem;
+    color: var(--text3);
+    margin-left: auto;
+  }
+  .proj-list-card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-weight: 300;
+    color: var(--text);
+    margin-bottom: 0.35rem;
+    line-height: 1.2;
+  }
+  .proj-list-card-preview {
+    font-size: 0.82rem;
+    color: var(--text2);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  .proj-list-card-bottom {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.75rem;
+  }
+  .proj-list-card-impact {
+    font-size: 0.72rem;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .proj-list-card-tools {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    margin-left: auto;
+  }
+  .tool-chip {
+    padding: 0.2rem 0.6rem;
+    border: 1px solid;
+    border-radius: 6px;
+    font-size: 0.68rem;
+    letter-spacing: 0.03em;
+    font-weight: 400;
+  }
+  .proj-list-card-arrow {
+    flex-shrink: 0;
+    color: var(--text3);
+    transition: color 0.2s, transform 0.2s;
+  }
+  .proj-list-card-arrow svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .proj-list-card:hover .proj-list-card-arrow {
+    color: var(--gold);
+    transform: translateX(3px);
+  }
+  @media (max-width: 600px) {
+    .proj-list-card-date { margin-left: 0; }
+    .proj-list-card-tools { margin-left: 0; }
+    .proj-list-card-arrow { display: none; }
+  }
+</style>
 </head>
 <body>
 <div id="starfield"></div>
@@ -87,13 +190,13 @@
 </main>
 
 <footer>
-  <div class="wrap" style="width:100%">
-    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
-      <span style="font-size:0.75rem;color:var(--text3)">&copy; 2026 Madison Rochovansky</span>
-      <div style="display:flex;gap:1.5rem">
-        <a href="/" style="font-size:0.75rem;color:var(--text3);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text3)'">Portfolio</a>
-        <a href="/work-with-me" style="font-size:0.75rem;color:var(--text3);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text3)'">Work With Me</a>
-        <a href="https://www.linkedin.com/in/maddie-rochovansky" target="_blank" rel="noopener" style="font-size:0.75rem;color:var(--text3);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text3)'">LinkedIn</a>
+  <div class="wrap footer-wrap">
+    <div class="footer-bar">
+      <span class="footer-copy">&copy; 2026 Madison Rochovansky</span>
+      <div class="footer-nav">
+        <a href="/" class="footer-link">Portfolio</a>
+        <a href="/work-with-me" class="footer-link">Work With Me</a>
+        <a href="https://www.linkedin.com/in/maddie-rochovansky" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
       </div>
     </div>
   </div>
@@ -245,106 +348,6 @@
 
 })();
 </script>
-<style>
-  /* Project list card styles specific to this page */
-  .proj-list-card {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: clamp(1.25rem, 3vw, 1.75rem) clamp(1.25rem, 3vw, 2rem);
-    border-bottom: 1px solid var(--border);
-    text-decoration: none;
-    color: inherit;
-    transition: background 0.2s;
-  }
-  .proj-list-card:last-child { border-bottom: none; }
-  .proj-list-card:hover { background: var(--bg2); }
-  .proj-list-card-inner { flex: 1; min-width: 0; }
-  .proj-list-card-top { margin-bottom: 0.75rem; }
-  .proj-list-card-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-bottom: 0.4rem;
-  }
-  .proj-list-card-cat {
-    font-size: 0.6rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 600;
-  }
-  .proj-list-card-date {
-    font-size: 0.7rem;
-    color: var(--text3);
-    margin-left: auto;
-  }
-  .proj-list-card-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-    font-weight: 300;
-    color: var(--text);
-    margin-bottom: 0.35rem;
-    line-height: 1.2;
-  }
-  .proj-list-card-preview {
-    font-size: 0.82rem;
-    color: var(--text2);
-    line-height: 1.6;
-    font-weight: 300;
-  }
-  .proj-list-card-bottom {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-top: 0.75rem;
-  }
-  .proj-list-card-impact {
-    font-size: 0.72rem;
-    color: var(--gold);
-    font-weight: 500;
-    letter-spacing: 0.02em;
-  }
-  .proj-list-card-tools {
-    display: flex;
-    gap: 0.35rem;
-    flex-wrap: wrap;
-    margin-left: auto;
-  }
-  .tool-chip {
-    padding: 0.2rem 0.6rem;
-    border: 1px solid;
-    border-radius: 6px;
-    font-size: 0.68rem;
-    letter-spacing: 0.03em;
-    font-weight: 400;
-  }
-  .proj-list-card-arrow {
-    flex-shrink: 0;
-    color: var(--text3);
-    transition: color 0.2s, transform 0.2s;
-  }
-  .proj-list-card-arrow svg {
-    width: 18px;
-    height: 18px;
-    stroke: currentColor;
-    fill: none;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-  .proj-list-card:hover .proj-list-card-arrow {
-    color: var(--gold);
-    transform: translateX(3px);
-  }
-  @media (max-width: 600px) {
-    .proj-list-card-date { margin-left: 0; }
-    .proj-list-card-tools { margin-left: 0; }
-    .proj-list-card-arrow { display: none; }
-  }
-</style>
 <script src="script.js"></script>
 </body>
 </html>
