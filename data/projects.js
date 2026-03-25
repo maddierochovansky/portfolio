@@ -26,14 +26,7 @@ const PROJECTS = [
       { label: "SAP ERP", type: "finance" },
       { label: "Excel", type: "data" },
     ],
-    caseStudy: {
-      problem: null,
-      approach: null,
-      outcome: null,
-      whatIdDoDifferently: null,
-    },
     asset: null,
-    image: null,
     related: ["sap-pre-validation-layer", "automated-vendor-remittance-emails"],
   },
 
@@ -63,14 +56,7 @@ const PROJECTS = [
       { label: "Power Automate", type: "automation" },
       { label: "Process Mapping", type: "process" },
     ],
-    caseStudy: {
-      problem: null,
-      approach: null,
-      outcome: null,
-      whatIdDoDifferently: null,
-    },
     asset: null,
-    image: null,
     related: ["sap-pre-validation-layer", "role-scope-and-capacity-analysis"],
   },
 
@@ -102,18 +88,11 @@ const PROJECTS = [
       { label: "VS Code", type: "web" },
       { label: "Cloudflare DNS", type: "web" },
     ],
-    caseStudy: {
-      problem: null,
-      approach: null,
-      outcome: null,
-      whatIdDoDifferently: null,
-    },
     asset: {
       type: "live",
       label: "View on GitHub",
       url: "https://github.com/maddierochovansky/maddierochovansky.github.io",
     },
-    image: null,
     related: ["digital-presence-and-operations-build"],
   },
 
@@ -144,14 +123,7 @@ const PROJECTS = [
       { label: "Excel", type: "data" },
       { label: "SAP ERP", type: "finance" },
     ],
-    caseStudy: {
-      problem: null,
-      approach: null,
-      outcome: null,
-      whatIdDoDifferently: null,
-    },
     asset: null,
-    image: null,
     related: ["invoice-processing-automation", "airtable-vendor-management-system"],
   },
 
@@ -181,14 +153,7 @@ const PROJECTS = [
       { label: "SAP ERP", type: "finance" },
       { label: "Data Validation", type: "automation" },
     ],
-    caseStudy: {
-      problem: null,
-      approach: null,
-      outcome: null,
-      whatIdDoDifferently: null,
-    },
     asset: null,
-    image: null,
     related: ["invoice-processing-automation", "records-deduplication-and-cost-analysis"],
   },
 
@@ -218,14 +183,7 @@ const PROJECTS = [
       { label: "Airtable Automations", type: "automation" },
       { label: "Forms", type: "automation" },
     ],
-    caseStudy: {
-      problem: null,
-      approach: null,
-      outcome: null,
-      whatIdDoDifferently: null,
-    },
     asset: null,
-    image: null,
     related: ["automated-vendor-remittance-emails", "microsoft-365-operations-infrastructure"],
   },
 
@@ -255,14 +213,7 @@ const PROJECTS = [
       { label: "Office Scripts", type: "automation" },
       { label: "Cost Allocation", type: "finance" },
     ],
-    caseStudy: {
-      problem: null,
-      approach: null,
-      outcome: null,
-      whatIdDoDifferently: null,
-    },
     asset: null,
-    image: null,
     related: ["phone-and-hotspot-asset-tracker", "microsoft-365-operations-infrastructure"],
   },
 
@@ -293,14 +244,7 @@ const PROJECTS = [
       { label: "Excel", type: "data" },
       { label: "Process Analysis", type: "process" },
     ],
-    caseStudy: {
-      problem: null,
-      approach: null,
-      outcome: null,
-      whatIdDoDifferently: null,
-    },
     asset: null,
-    image: null,
     related: ["records-deduplication-and-cost-analysis", "role-scope-and-capacity-analysis"],
   },
 
@@ -331,14 +275,7 @@ const PROJECTS = [
       { label: "Lean Six Sigma", type: "process" },
       { label: "Word", type: "process" },
     ],
-    caseStudy: {
-      problem: null,
-      approach: null,
-      outcome: null,
-      whatIdDoDifferently: null,
-    },
     asset: null,
-    image: null,
     related: ["records-deduplication-and-cost-analysis", "it-policy-revision-and-change-audit"],
   },
 
@@ -368,14 +305,7 @@ const PROJECTS = [
       { label: "Change Management", type: "process" },
       { label: "Policy Documentation", type: "process" },
     ],
-    caseStudy: {
-      problem: null,
-      approach: null,
-      outcome: null,
-      whatIdDoDifferently: null,
-    },
     asset: null,
-    image: null,
     related: ["role-scope-and-capacity-analysis", "microsoft-365-operations-infrastructure"],
   },
 
@@ -406,14 +336,7 @@ const PROJECTS = [
       { label: "XLOOKUP", type: "data" },
       { label: "Conditional Formatting", type: "data" },
     ],
-    caseStudy: {
-      problem: null,
-      approach: null,
-      outcome: null,
-      whatIdDoDifferently: null,
-    },
     asset: null,
-    image: null,
     related: ["phone-and-hotspot-asset-tracker", "microsoft-365-operations-infrastructure"],
   },
 
@@ -443,14 +366,7 @@ const PROJECTS = [
       { label: "SAP", type: "finance" },
       { label: "Data Analysis", type: "data" },
     ],
-    caseStudy: {
-      problem: null,
-      approach: null,
-      outcome: null,
-      whatIdDoDifferently: null,
-    },
     asset: null,
-    image: null,
     related: ["it-asset-tracking-dashboard", "records-deduplication-and-cost-analysis"],
   },
 
@@ -481,14 +397,7 @@ const PROJECTS = [
       { label: "XLOOKUP", type: "data" },
       { label: "Financial Reporting", type: "finance" },
     ],
-    caseStudy: {
-      problem: null,
-      approach: null,
-      outcome: null,
-      whatIdDoDifferently: null,
-    },
     asset: null,
-    image: null,
     related: ["role-scope-and-capacity-analysis", "sql-invoice-variance-analysis"],
   },
 
@@ -519,14 +428,7 @@ const PROJECTS = [
       { label: "Power Automate", type: "automation" },
       { label: "Microsoft 365", type: "automation" },
     ],
-    caseStudy: {
-      problem: null,
-      approach: null,
-      outcome: null,
-      whatIdDoDifferently: null,
-    },
     asset: null,
-    image: null,
     related: ["airtable-vendor-management-system", "it-policy-revision-and-change-audit"],
   },
 
@@ -556,14 +458,7 @@ const PROJECTS = [
       { label: "Lucidchart", type: "process" },
       { label: "SOP Development", type: "process" },
     ],
-    caseStudy: {
-      problem: null,
-      approach: null,
-      outcome: null,
-      whatIdDoDifferently: null,
-    },
     asset: null,
-    image: null,
     related: ["phone-and-hotspot-asset-tracker", "it-asset-tracking-dashboard"],
   },
 
@@ -593,14 +488,7 @@ const PROJECTS = [
       { label: "Office Scripts", type: "automation" },
       { label: "Data Validation", type: "automation" },
     ],
-    caseStudy: {
-      problem: null,
-      approach: null,
-      outcome: null,
-      whatIdDoDifferently: null,
-    },
     asset: null,
-    image: null,
     related: ["apple-business-manager-rollout", "t-mobile-cost-center-bill-processor"],
   },
 
@@ -630,14 +518,7 @@ const PROJECTS = [
       { label: "Asana", type: "automation" },
       { label: "Project Coordination", type: "process" },
     ],
-    caseStudy: {
-      problem: null,
-      approach: null,
-      outcome: null,
-      whatIdDoDifferently: null,
-    },
     asset: null,
-    image: null,
     related: ["microsoft-365-operations-infrastructure", "apple-business-manager-rollout"],
   },
 
@@ -669,14 +550,7 @@ const PROJECTS = [
       { label: "SEO", type: "process" },
       { label: "Workflow Mapping", type: "process" },
     ],
-    caseStudy: {
-      problem: null,
-      approach: null,
-      outcome: null,
-      whatIdDoDifferently: null,
-    },
     asset: null,
-    image: null,
     related: ["portfolio-site", "marketing-performance-dashboard"],
   },
 
@@ -706,14 +580,7 @@ const PROJECTS = [
       { label: "Excel", type: "data" },
       { label: "Financial Reporting", type: "finance" },
     ],
-    caseStudy: {
-      problem: null,
-      approach: null,
-      outcome: null,
-      whatIdDoDifferently: null,
-    },
     asset: null,
-    image: null,
     related: ["marketing-performance-dashboard", "cfo-health-insurance-cost-report"],
   },
 
@@ -743,14 +610,7 @@ const PROJECTS = [
       { label: "Google Search Console", type: "data" },
       { label: "SEO Analysis", type: "process" },
     ],
-    caseStudy: {
-      problem: null,
-      approach: null,
-      outcome: null,
-      whatIdDoDifferently: null,
-    },
     asset: null,
-    image: null,
     related: ["digital-presence-and-operations-build", "retail-sales-and-inventory-dashboard"],
   },
 ];
