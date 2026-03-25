@@ -306,7 +306,8 @@
   });
 
   // contact form submission
-  document.getElementById('contact-form').addEventListener('submit', function (e) {
+  var _cf = document.getElementById('contact-form');
+  if (_cf) _cf.addEventListener('submit', function (e) {
     e.preventDefault();
     var form = this;
     var btn = form.querySelector('.form-submit');
