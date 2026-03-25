@@ -449,9 +449,9 @@ section {
 
 .hero-layout {
   display: grid;
-  grid-template-columns: 1fr 220px;
-  gap: 2.5rem;
-  align-items: flex-start;
+  grid-template-columns: 1fr 240px;
+  gap: 3rem;
+  align-items: center;
 }
 
 .hero-text {
@@ -461,8 +461,7 @@ section {
 .hero-photo {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding-top: 5rem;
+  align-items: center;
 }
 
 .photo-img {
@@ -505,12 +504,12 @@ section {
 
 .hero-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(3rem, 8.5vw, 6.5rem);
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
   font-weight: 300;
-  line-height: 1.0;
+  line-height: 1.05;
   letter-spacing: -0.025em;
   color: var(--text);
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.5rem;
 }
 
 .hero-title span {
