@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Projects - Maddie Rochovansky</title>
+<meta name="description" content="Operations, automation, process improvement, data, systems, and web projects. Every piece of work documented with full STAR breakdowns.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="All Projects - Maddie Rochovansky">
+<meta property="og:description" content="Operations, automation, process improvement, data, systems, and web projects. Every piece of work documented with full STAR breakdowns.">
+<meta property="og:url" content="https://maddierochovansky.com/projects">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://maddierochovansky.com/projects">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0c'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='18' fill='%23c9a84c'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<noscript><style>.fade{opacity:1!important;transform:none!important}</style></noscript>
+<link rel="stylesheet" href="style.css">
+<style>
+  .projects-page { padding-top: calc(var(--nav-h) + 3rem); padding-bottom: 5rem; }
+  .projects-page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 300; line-height: 1.1; color: var(--text); margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+  .projects-page-title em { font-style: italic; color: var(--gold); }
+  .projects-page-sub { font-size: 0.88rem; color: var(--text3); margin-bottom: 2.5rem; font-weight: 300; }
+  .projects-search-wrap { margin-bottom: 1.25rem; }
+  .projects-search { width: 100%; background: var(--bg2); border: 1px solid var(--border2); border-radius: var(--radius); padding: 0.65rem 1rem; color: var(--text); font-size: 0.85rem; font-family: 'DM Sans', sans-serif; outline: none; transition: border-color 0.2s; }
+  .projects-search:focus { border-color: var(--gold-border); }
+  .projects-search::placeholder { color: var(--text3); }
+  .no-results { padding: 3rem; text-align: center; color: var(--text3); font-size: 0.85rem; border: 1px solid var(--border); border-radius: var(--radius); }
+
+  /* category label map */
+  .cat-label-automation { color: var(--text3); }
+  .cat-label-process    { color: var(--text3); }
+  .cat-label-data       { color: var(--text3); }
+  .cat-label-financial  { color: var(--text3); }
+  .cat-label-systems    { color: var(--text3); }
+  .cat-label-web        { color: var(--text3); }
+
+  /* tool chips on this page */
+  .tc-automation { color: #0a0a0c; border-color: rgba(126,184,212,0.85); background: rgba(126,184,212,0.72); }
+  .tc-data       { color: #0a0a0c; border-color: rgba(168,159,212,0.85); background: rgba(168,159,212,0.72); }
+  .tc-finance    { color: #0a0a0c; border-color: rgba(212,160,126,0.85); background: rgba(212,160,126,0.72); }
+  .tc-process    { color: #0a0a0c; border-color: rgba(136,201,160,0.85); background: rgba(136,201,160,0.72); }
+  .tc-web        { color: #0a0a0c; border-color: rgba(126,212,200,0.85); background: rgba(126,212,200,0.72); }
+  .tc-systems    { color: #0a0a0c; border-color: rgba(212,185,126,0.85); background: rgba(212,185,126,0.72); }
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z64DK1NL6"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8Z64DK1NL6');</script>
+</head>
+<body>
+<div id="starfield"></div>
+<canvas id="meteors" aria-hidden="true"></canvas>
+
+<nav>
+  <a href="/" class="nav-logo">Maddie Rochovansky</a>
+  <a href="/" class="nav-back">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    Back to portfolio
+  </a>
+</nav>
+
+<main>
+  <section class="projects-page">
+    <div class="wrap">
+
+      <h1 class="projects-page-title fade">All <em>Projects</em></h1>
+      <p class="projects-page-sub fade">Every project documented with full context, tools, and outcomes.</p>
+
+      <div class="projects-search-wrap fade">
+        <input class="projects-search" id="proj-search" type="search" placeholder="Search projects..." autocomplete="off">
+      </div>
+
+      <div class="proj-filters fade" id="proj-filters">
+        <!-- rendered by JS -->
+      </div>
+
+      <div class="projects-grid" id="proj-grid">
+        <!-- rendered by JS -->
+      </div>
+
+      <div class="no-results" id="no-results" style="display:none;">
+        No projects match that filter.
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap" style="width:100%">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
+      <span style="font-size:0.75rem;color:var(--text3)">&copy; 2026 Madison Rochovansky</span>
+      <div style="display:flex;gap:1.5rem">
+        <a href="/" style="font-size:0.75rem;color:var(--text3);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text3)'">Portfolio</a>
+        <a href="/work-with-me" style="font-size:0.75rem;color:var(--text3);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text3)'">Work With Me</a>
+        <a href="https://www.linkedin.com/in/maddie-rochovansky" target="_blank" rel="noopener" style="font-size:0.75rem;color:var(--text3);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text3)'">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+
+<script src="data/projects.js"></script>
+<script>
+(function () {
+  // ── Category display config ──────────────────────────────────────────────
+  var CAT_LABELS = {
+    automation: 'Automation',
+    process:    'Process Improvement',
+    data:       'Data & Analytics',
+    financial:  'Financial',
+    systems:    'Systems & IT',
+    web:        'Development',
+  };
+
+  var CAT_ORDER = ['automation', 'process', 'data', 'financial', 'systems', 'web'];
+
+  // ── State ────────────────────────────────────────────────────────────────
+  var activeFilter = 'all';
+  var searchQuery  = '';
+
+  // ── Build filter buttons ─────────────────────────────────────────────────
+  function buildFilters() {
+    var container = document.getElementById('proj-filters');
+    var counts = { all: PROJECTS.length };
+    PROJECTS.forEach(function (p) {
+      counts[p.category] = (counts[p.category] || 0) + 1;
+    });
+
+    var allBtn = document.createElement('button');
+    allBtn.className = 'proj-filter-btn active';
+    allBtn.dataset.cat = 'all';
+    allBtn.innerHTML = 'All <span class="proj-filter-count">(' + counts.all + ')</span>';
+    allBtn.onclick = function () { setFilter('all', allBtn); };
+    container.appendChild(allBtn);
+
+    CAT_ORDER.forEach(function (cat) {
+      if (!counts[cat]) return;
+      var btn = document.createElement('button');
+      btn.className = 'proj-filter-btn';
+      btn.dataset.cat = cat;
+      btn.innerHTML = CAT_LABELS[cat] + ' <span class="proj-filter-count">(' + counts[cat] + ')</span>';
+      btn.onclick = function () { setFilter(cat, btn); };
+      container.appendChild(btn);
+    });
+  }
+
+  function setFilter(cat, btn) {
+    activeFilter = cat;
+    document.querySelectorAll('.proj-filter-btn').forEach(function (b) {
+      b.classList.remove('active');
+    });
+    btn.classList.add('active');
+    renderGrid();
+  }
+
+  // ── Build project cards ──────────────────────────────────────────────────
+  function statusBadge(status) {
+    if (status === 'complete') {
+      return '<span class="proj-status-badge complete">Complete</span>';
+    }
+    return '<span class="proj-status-badge ongoing">Ongoing</span>';
+  }
+
+  function toolChips(tools) {
+    if (!tools || !tools.length) return '';
+    return tools.slice(0, 4).map(function (t) {
+      return '<span class="tool-chip tc-' + t.type + '">' + t.label + '</span>';
+    }).join('');
+  }
+
+  function buildCard(p) {
+    var card = document.createElement('a');
+    card.className = 'proj-list-card fade';
+    card.href = '/projects/' + p.slug;
+    card.dataset.cat = p.category;
+    card.dataset.name = p.name.toLowerCase();
+    card.dataset.preview = (p.preview || '').toLowerCase();
+    card.dataset.impact = (p.impact || '').toLowerCase();
+
+    var catLabel = CAT_LABELS[p.category] || p.category;
+
+    card.innerHTML =
+      '<div class="proj-list-card-inner">' +
+        '<div class="proj-list-card-top">' +
+          '<div class="proj-list-card-meta">' +
+            '<span class="proj-list-card-cat">' + catLabel + '</span>' +
+            statusBadge(p.status) +
+            '<span class="proj-list-card-date">' + p.date + '</span>' +
+          '</div>' +
+          '<h2 class="proj-list-card-name">' + p.name + '</h2>' +
+          '<p class="proj-list-card-preview">' + (p.preview || '') + '</p>' +
+        '</div>' +
+        '<div class="proj-list-card-bottom">' +
+          '<div class="proj-list-card-impact">' + (p.impact || '') + '</div>' +
+          '<div class="proj-list-card-tools">' + toolChips(p.tools) + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="proj-list-card-arrow">' +
+        '<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>' +
+      '</div>';
+
+    return card;
+  }
+
+  // ── Render / filter ──────────────────────────────────────────────────────
+  function renderGrid() {
+    var grid    = document.getElementById('proj-grid');
+    var noRes   = document.getElementById('no-results');
+    var q       = searchQuery.toLowerCase();
+    var visible = 0;
+
+    grid.innerHTML = '';
+
+    PROJECTS.forEach(function (p) {
+      var catMatch = activeFilter === 'all' || p.category === activeFilter;
+      var searchMatch = !q ||
+        p.name.toLowerCase().indexOf(q) !== -1 ||
+        (p.preview || '').toLowerCase().indexOf(q) !== -1 ||
+        (p.impact || '').toLowerCase().indexOf(q) !== -1 ||
+        (p.meta && p.meta.technology || '').toLowerCase().indexOf(q) !== -1;
+
+      if (catMatch && searchMatch) {
+        grid.appendChild(buildCard(p));
+        visible++;
+      }
+    });
+
+    noRes.style.display  = visible === 0 ? 'block' : 'none';
+    grid.style.display   = visible === 0 ? 'none'  : '';
+  }
+
+  // ── Search ───────────────────────────────────────────────────────────────
+  document.getElementById('proj-search').addEventListener('input', function () {
+    searchQuery = this.value;
+    renderGrid();
+  });
+
+  // ── Init ─────────────────────────────────────────────────────────────────
+  buildFilters();
+  renderGrid();
+
+})();
+</script>
+<style>
+  /* Project list card styles specific to this page */
+  .proj-list-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: clamp(1.25rem, 3vw, 1.75rem) clamp(1.25rem, 3vw, 2rem);
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s;
+  }
+  .proj-list-card:last-child { border-bottom: none; }
+  .proj-list-card:hover { background: var(--bg2); }
+  .proj-list-card-inner { flex: 1; min-width: 0; }
+  .proj-list-card-top { margin-bottom: 0.75rem; }
+  .proj-list-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.4rem;
+  }
+  .proj-list-card-cat {
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .proj-list-card-date {
+    font-size: 0.7rem;
+    color: var(--text3);
+    margin-left: auto;
+  }
+  .proj-list-card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-weight: 300;
+    color: var(--text);
+    margin-bottom: 0.35rem;
+    line-height: 1.2;
+  }
+  .proj-list-card-preview {
+    font-size: 0.82rem;
+    color: var(--text2);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  .proj-list-card-bottom {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.75rem;
+  }
+  .proj-list-card-impact {
+    font-size: 0.72rem;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .proj-list-card-tools {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    margin-left: auto;
+  }
+  .tool-chip {
+    padding: 0.2rem 0.6rem;
+    border: 1px solid;
+    border-radius: 6px;
+    font-size: 0.68rem;
+    letter-spacing: 0.03em;
+    font-weight: 400;
+  }
+  .proj-list-card-arrow {
+    flex-shrink: 0;
+    color: var(--text3);
+    transition: color 0.2s, transform 0.2s;
+  }
+  .proj-list-card-arrow svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .proj-list-card:hover .proj-list-card-arrow {
+    color: var(--gold);
+    transform: translateX(3px);
+  }
+  @media (max-width: 600px) {
+    .proj-list-card-date { margin-left: 0; }
+    .proj-list-card-tools { margin-left: 0; }
+    .proj-list-card-arrow { display: none; }
+  }
+</style>
+<script src="script.js"></script>
+</body>
+</html>
