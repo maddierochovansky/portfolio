@@ -2526,10 +2526,12 @@ footer {
 }
 
 @media (max-width: 480px) {
-  #chat-panel  { 
-    width: calc(100vw - 2rem); 
-    right: 1rem;
+  #chat-panel {
+    position: fixed;
+    width: calc(100vw - 2rem);
     left: 1rem;
+    right: 1rem;
+    bottom: calc(1rem + 60px);
     max-height: 70vh;
   }
   #chat-widget { right: 1rem; bottom: 1rem; }

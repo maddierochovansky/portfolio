@@ -2369,8 +2369,15 @@ footer {
   .proj-meta { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 400px) {
-  #chat-panel  { width: calc(100vw - 2rem); }
+@media (max-width: 480px) {
+  #chat-panel {
+    position: fixed;
+    width: calc(100vw - 2rem);
+    left: 1rem;
+    right: 1rem;
+    bottom: calc(1rem + 60px);
+    max-height: 70vh;
+  }
   #chat-widget { right: 1rem; bottom: 1rem; }
   #scroll-top  { right: 1rem; }
 }
