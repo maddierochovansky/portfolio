@@ -31,7 +31,6 @@
   .projects-search::placeholder { color: var(--text3); }
   .no-results { padding: 3rem; text-align: center; color: var(--text3); font-size: 0.85rem; border: 1px solid var(--border); border-radius: var(--radius); }
 
-  /* category label map */
   .cat-label-automation { color: var(--text3); }
   .cat-label-process    { color: var(--text3); }
   .cat-label-data       { color: var(--text3); }
@@ -39,7 +38,6 @@
   .cat-label-systems    { color: var(--text3); }
   .cat-label-web        { color: var(--text3); }
 
-  /* tool chips on this page */
   .tc-automation { color: #0a0a0c; border-color: rgba(126,184,212,0.85); background: rgba(126,184,212,0.72); }
   .tc-data       { color: #0a0a0c; border-color: rgba(168,159,212,0.85); background: rgba(168,159,212,0.72); }
   .tc-finance    { color: #0a0a0c; border-color: rgba(212,160,126,0.85); background: rgba(212,160,126,0.72); }
@@ -49,6 +47,40 @@
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z64DK1NL6"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8Z64DK1NL6');</script>
+
+<!-- Structured Data for Projects Collection -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "All Projects - Maddie Rochovansky",
+  "description": "Operations, automation, process improvement, data, systems, and web projects. Every piece of work documented with full STAR breakdowns.",
+  "url": "https://maddierochovansky.com/projects",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "Article",
+        "name": "Invoice Processing Automation",
+        "description": "45 minutes per batch became 5. Built across 15+ weekly batches using Power Automate and Office Scripts.",
+        "url": "https://maddierochovansky.com/projects/invoice-processing-automation"
+      },
+      {
+        "@type": "Article", 
+        "name": "Records Deduplication & Cost Analysis",
+        "description": "Audited operational records end to end, identified duplicate costs, and built an automated tracking system to prevent recurrence.",
+        "url": "https://maddierochovansky.com/projects/records-deduplication-and-cost-analysis"
+      },
+      {
+        "@type": "Article",
+        "name": "This Portfolio Site",
+        "description": "Hand-coded in HTML, CSS, and JavaScript. Zero frameworks, zero dependencies.",
+        "url": "https://maddierochovansky.com/projects/portfolio-site"
+      }
+    ]
+  }
+}
+</script>
 <style>
   /* Project list card styles specific to this page */
   .proj-list-card {
@@ -125,6 +157,15 @@
     letter-spacing: 0.03em;
     font-weight: 400;
   }
+  
+  /* Search highlighting */
+  mark {
+    background: rgba(201, 168, 76, 0.3);
+    color: var(--gold);
+    border-radius: 3px;
+    padding: 1px 2px;
+    font-weight: 500;
+  }
   .proj-list-card-arrow {
     flex-shrink: 0;
     color: var(--text3);
@@ -184,6 +225,18 @@
       <div class="no-results" id="no-results" style="display:none;">
         No projects match that filter.
       </div>
+
+      <script>
+       
+        try {
+        
+        } catch (e) {
+          console.error(e);
+          const errorContainer = document.getElementById('no-results');
+          errorContainer.innerText = 'Error: ' + e.message;
+          errorContainer.style.display = 'block';
+        }
+      </script>
 
     </div>
   </section>
@@ -286,6 +339,11 @@
 
     var catLabel = CAT_LABELS[p.category] || p.category;
 
+    // Apply search highlighting if there's a search query
+    var highlightedName = searchQuery ? highlightSearchTerm(p.name, searchQuery) : p.name;
+    var highlightedPreview = searchQuery ? highlightSearchTerm(p.preview || '', searchQuery) : (p.preview || '');
+    var highlightedImpact = searchQuery ? highlightSearchTerm(p.impact || '', searchQuery) : (p.impact || '');
+
     card.innerHTML =
       '<div class="proj-list-card-inner">' +
         '<div class="proj-list-card-top">' +
@@ -294,11 +352,11 @@
             statusBadge(p.status) +
             '<span class="proj-list-card-date">' + p.date + '</span>' +
           '</div>' +
-          '<h2 class="proj-list-card-name">' + p.name + '</h2>' +
-          '<p class="proj-list-card-preview">' + (p.preview || '') + '</p>' +
+          '<h2 class="proj-list-card-name">' + highlightedName + '</h2>' +
+          '<p class="proj-list-card-preview">' + highlightedPreview + '</p>' +
         '</div>' +
         '<div class="proj-list-card-bottom">' +
-          '<div class="proj-list-card-impact">' + (p.impact || '') + '</div>' +
+          '<div class="proj-list-card-impact">' + highlightedImpact + '</div>' +
           '<div class="proj-list-card-tools">' + toolChips(p.tools) + '</div>' +
         '</div>' +
       '</div>' +
@@ -336,11 +394,60 @@
     grid.style.display   = visible === 0 ? 'none'  : '';
   }
 
-  // ── Search ───────────────────────────────────────────────────────────────
-  document.getElementById('proj-search').addEventListener('input', function () {
+  // ── Search ───────────────────────────────────────────────────────
+  var searchInput = document.getElementById('proj-search');
+  
+  searchInput.addEventListener('input', function () {
     searchQuery = this.value;
     renderGrid();
+    
+    // Clear previous active filter if searching
+    if (searchQuery && activeFilter !== 'all') {
+      activeFilter = 'all';
+      document.querySelectorAll('.proj-filter-btn').forEach(function (b) {
+        b.classList.remove('active');
+      });
+      document.querySelector('[data-cat="all"]').classList.add('active');
+    }
   });
+
+  // Keyboard navigation for search
+  searchInput.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      this.value = '';
+      searchQuery = '';
+      renderGrid();
+      this.blur();
+    }
+  });
+
+  // Clear search button
+  var clearBtn = document.createElement('button');
+  clearBtn.innerHTML = '×';
+  clearBtn.className = 'search-clear';
+  clearBtn.style.cssText = 'position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text3); font-size: 1.2rem; cursor: pointer; padding: 0; width: 20px; height: 20px; display: none;';
+  clearBtn.onclick = function () {
+    searchInput.value = '';
+    searchQuery = '';
+    renderGrid();
+    clearBtn.style.display = 'none';
+    searchInput.focus();
+  };
+  
+  searchInput.parentNode.style.position = 'relative';
+  searchInput.parentNode.appendChild(clearBtn);
+  
+  // Show/hide clear button
+  searchInput.addEventListener('input', function () {
+    clearBtn.style.display = this.value ? 'block' : 'none';
+  });
+
+  // ── Search matching ───────────────────────────────────────────────
+  function highlightSearchTerm(text, term) {
+    if (!term) return text;
+    var regex = new RegExp('(' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+    return text.replace(regex, '<mark>$1</mark>');
+  }
 
   // ── Init ─────────────────────────────────────────────────────────────────
   buildFilters();

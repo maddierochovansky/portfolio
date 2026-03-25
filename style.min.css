@@ -1,4 +1,4 @@
-/* =============================================================================
+﻿/* =============================================================================
    STYLE.CSS - maddierochovansky.com
    Shared styles for all pages.
 
@@ -1173,7 +1173,7 @@ section {
 }
 
 .exp-buls li::before {
-  content: "·";
+  content: "Â·";
   position: absolute;
   left: 0;
   color: var(--gold);
@@ -2309,6 +2309,7 @@ footer {
   .nav-links { display: none; }
   .ham       { display: flex; }
 
+  /* Improved touch targets */
   .ham { padding: 8px; min-width: 44px; min-height: 44px; }
   .nav-links a { padding: 8px 12px; min-height: 44px; display: flex; align-items: center; }
   .btn-gold, .btn-outline { padding: 12px 20px; min-height: 44px; font-size: 0.8rem; }
@@ -2352,6 +2353,7 @@ footer {
 @media (max-width: 680px) {
   .services-grid { grid-template-columns: 1fr; }
   
+  /* More touch target improvements */
   .contact-opt { padding: 16px; min-height: 48px; }
   .proj-filter-btn { padding: 12px 16px; min-height: 44px; }
   .faq-q { padding: 16px; min-height: 44px; }
@@ -2437,7 +2439,7 @@ footer {
 
 
 /* =============================================================================
-   23. INDEX PAGE — HOMEPAGE-SPECIFIC COMPONENTS
+   23. INDEX PAGE â€” HOMEPAGE-SPECIFIC COMPONENTS
    ============================================================================= */
 
 /* Nav dropdown */
@@ -2778,14 +2780,14 @@ footer {
 .cert-feat-label--orange { color: #d4a07e; }
 .cert-feat-label--green  { color: #88c9a0; }
 
-/* feat-proj-card as <a> tag — reset link styles */
+/* feat-proj-card as <a> tag â€” reset link styles */
 a.feat-proj-card {
   text-decoration: none;
   color: inherit;
   display: flex;
 }
 
-/* blog-card as <a> tag — reset link styles */
+/* blog-card as <a> tag â€” reset link styles */
 a.blog-card {
   text-decoration: none;
   color: inherit;
@@ -2793,10 +2795,10 @@ a.blog-card {
 
 
 /* =============================================================================
-   25. WORK-WITH-ME PAGE — SPECIFIC COMPONENTS
+   25. WORK-WITH-ME PAGE â€” SPECIFIC COMPONENTS
    ============================================================================= */
 
-/* How it works — two column layout */
+/* How it works â€” two column layout */
 .how-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2814,7 +2816,7 @@ a.blog-card {
 /* Button no-wrap modifier */
 .btn-nowrap { white-space: nowrap; }
 
-/* Fit cards — Good fit / Not a fit */
+/* Fit cards â€” Good fit / Not a fit */
 .fit-cards {
   display: flex;
   flex-direction: column;
@@ -2855,7 +2857,7 @@ a.blog-card {
 }
 
 .fit-item::before {
-  content: "·";
+  content: "Â·";
   position: absolute;
   left: 0;
   font-size: 1rem;
