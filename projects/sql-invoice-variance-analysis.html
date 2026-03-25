@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQL Invoice Variance Analysis - Maddie Rochovansky</title>
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://maddierochovansky.com/projects/sql-invoice-variance-analysis">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0c'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='18' fill='%23c9a84c'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<noscript><style>.fade{opacity:1!important;transform:none!important}</style></noscript>
+<link rel="stylesheet" href="../style.css">
+<style>
+  .proj-page{padding-top:calc(var(--nav-h) + 3rem);padding-bottom:5rem}
+  .proj-page-back{display:inline-flex;align-items:center;gap:0.5rem;color:var(--text3);text-decoration:none;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;margin-bottom:2.5rem}
+  .proj-page-back:hover{color:var(--gold)}
+  .proj-page-back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .proj-page-cat{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.75rem}
+  .proj-page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:300;line-height:1.1;color:var(--text);margin-bottom:1rem;letter-spacing:-0.02em}
+  .proj-page-title em{font-style:italic;color:var(--gold)}
+  .proj-page-meta-row{display:flex;flex-wrap:wrap;gap:1.5rem;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+  .proj-page-meta-item{display:flex;flex-direction:column;gap:0.2rem}
+  .proj-page-meta-label{font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text3);font-weight:500}
+  .proj-page-meta-val{font-size:0.85rem;color:var(--text);font-weight:300}
+  .proj-page-impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden;margin-bottom:3rem}
+  .proj-page-impact-cell{padding:1.25rem 1.5rem;border-right:1px solid var(--border2);background:var(--bg2)}
+  .proj-page-impact-cell:last-child{border-right:none}
+  .proj-page-impact-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:0.35rem}
+  .proj-page-impact-label{font-size:0.65rem;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;line-height:1.4}
+  .proj-page-section{margin-bottom:2.5rem}
+  .proj-page-section-label{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:0.6rem}
+  .proj-page-section-label::after{content:"";flex:1;height:1px;background:var(--border)}
+  .star-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+  .star-cell{background:var(--bg2);padding:1.25rem 1.5rem}
+  .star-cell-label{font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.5rem}
+  .star-cell-text{font-size:0.875rem;color:var(--text2);line-height:1.75;font-weight:300}
+  .tools-row{display:flex;flex-wrap:wrap;gap:0.5rem}
+  .tool-chip{padding:0.3rem 0.8rem;border:1px solid;border-radius:6px;font-size:0.72rem;letter-spacing:0.03em;font-weight:400}
+  .tc-automation{color:#0a0a0c;border-color:rgba(126,184,212,0.85);background:rgba(126,184,212,0.72)}
+  .tc-data{color:#0a0a0c;border-color:rgba(168,159,212,0.85);background:rgba(168,159,212,0.72)}
+  .tc-finance{color:#0a0a0c;border-color:rgba(212,160,126,0.85);background:rgba(212,160,126,0.72)}
+  .tc-process{color:#0a0a0c;border-color:rgba(136,201,160,0.85);background:rgba(136,201,160,0.72)}
+  .tc-web{color:#0a0a0c;border-color:rgba(126,212,200,0.85);background:rgba(126,212,200,0.72)}
+  .related-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .related-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;text-decoration:none;transition:border-color 0.2s,transform 0.2s;display:block}
+  .related-card:hover{border-color:var(--gold-border);transform:translateY(-2px)}
+  .related-card-cat{font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.4rem}
+  .related-card-name{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text);font-weight:400}
+  @media(max-width:640px){.proj-page-impact-grid{grid-template-columns:1fr}.star-grid{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr}}
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z64DK1NL6"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8Z64DK1NL6');</script>
+</head>
+<body>
+<div id="starfield"></div>
+<canvas id="meteors" aria-hidden="true"></canvas>
+<nav>
+  <a href="/" class="nav-logo">Maddie Rochovansky</a>
+  <a href="/projects" class="nav-back">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    All projects
+  </a>
+</nav>
+<main>
+  <section class="proj-page">
+    <div class="wrap">
+      <a href="/#projects" class="proj-page-back fade">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        Back to portfolio
+      </a>
+      <div class="proj-page-cat fade">Data & Analytics</div>
+      <h1 class="proj-page-title fade">SQL Invoice Variance Analysis</h1>
+      <div class="proj-page-meta-row fade">
+        <div class="proj-page-meta-item"><span class="proj-page-meta-label">Status</span><span style="display:inline-flex;align-items:center;font-size:0.72rem;font-weight:600;padding:0.25rem 0.7rem;border-radius:100px;background:rgba(74,222,128,0.12);color:#4ade80;border:1px solid rgba(74,222,128,0.25)">Complete</span></div>
+        <div class="proj-page-meta-item"><span class="proj-page-meta-label">Date</span><span class="proj-page-meta-val">2022-2023</span></div>
+        <div class="proj-page-meta-item"><span class="proj-page-meta-label">Industry</span><span class="proj-page-meta-val">Healthcare Technology / SMB</span></div>
+        <div class="proj-page-meta-item"><span class="proj-page-meta-label">Focus</span><span class="proj-page-meta-val">Data Accuracy, Dispute Resolution</span></div>
+        <div class="proj-page-meta-item"><span class="proj-page-meta-label">Stakeholders</span><span class="proj-page-meta-val">Finance, Sales Teams</span></div>
+      </div>
+      <div class="proj-page-impact-grid fade">
+        <div class="proj-page-impact-cell">
+          <div class="proj-page-impact-num">99%+</div>
+          <div class="proj-page-impact-label">Processing accuracy</div>
+        </div>
+        <div class="proj-page-impact-cell">
+          <div class="proj-page-impact-num">500+</div>
+          <div class="proj-page-impact-label">Accounts maintained</div>
+        </div>
+        <div class="proj-page-impact-cell">
+          <div class="proj-page-impact-num">200+</div>
+          <div class="proj-page-impact-label">Monthly transactions</div>
+        </div></div>
+      <div class="proj-page-section fade">
+        <div class="proj-page-section-label">STAR Breakdown</div>
+        <div class="star-grid">
+          <div class="star-cell"><div class="star-cell-label">Situation</div><div class="star-cell-text">Processing 200+ payments monthly across 500+ accounts required accurate cross-referencing against contract terms to catch pricing discrepancies before they became disputes.</div></div>
+          <div class="star-cell"><div class="star-cell-label">Task</div><div class="star-cell-text">Use SQL to pull invoice data and identify variances against contract pricing before they impacted customer relationships.</div></div>
+          <div class="star-cell"><div class="star-cell-label">Action</div><div class="star-cell-text">Wrote SQL queries to pull invoice data, cross-reference against contract terms, and flag pricing variances for review and resolution.</div></div>
+          <div class="star-cell"><div class="star-cell-label">Result</div><div class="star-cell-text">Maintained 99%+ accuracy across 500+ accounts by catching and resolving discrepancies before they escalated.</div></div>
+        </div>
+      </div>
+      <div class="proj-page-section fade">
+        <div class="proj-page-section-label">Tools Used</div>
+        <div class="tools-row"><span class="tool-chip tc-data">SQL</span>
+          <span class="tool-chip tc-finance">SAP</span>
+          <span class="tool-chip tc-data">Data Analysis</span></div>
+      </div>
+      <div class="proj-page-section fade">
+        <div class="proj-page-section-label">Related Projects</div>
+        <div class="related-grid">
+          <a href="/projects/cfo-health-insurance-cost-report" class="related-card">
+            <div class="related-card-cat">Financial</div>
+            <div class="related-card-name">CFO Health Insurance Cost Report</div>
+          </a>
+          <a href="/projects/it-asset-tracking-dashboard" class="related-card">
+            <div class="related-card-cat">Data & Analytics</div>
+            <div class="related-card-name">IT Asset Tracking Dashboard</div>
+          </a></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap" style="width:100%">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
+      <span style="font-size:0.75rem;color:var(--text3)">&copy; 2026 Madison Rochovansky</span>
+      <div style="display:flex;gap:1.5rem">
+        <a href="/" style="font-size:0.75rem;color:var(--text3);text-decoration:none" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text3)'">Portfolio</a>
+        <a href="/work-with-me" style="font-size:0.75rem;color:var(--text3);text-decoration:none" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text3)'">Work With Me</a>
+        <a href="https://www.linkedin.com/in/maddie-rochovansky" target="_blank" rel="noopener" style="font-size:0.75rem;color:var(--text3);text-decoration:none" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--gold)'">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+<script src="../script.js"></script>
+</body>
+</html>
