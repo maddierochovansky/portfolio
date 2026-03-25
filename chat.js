@@ -257,9 +257,9 @@
       [/freelance|consult|hire.*for|available.*project/,
         "Open to select freelance: workflow automation, operations cleanup, AP and AR setup, SharePoint builds, Excel dashboards, web builds, and SEO. If the problem does not have a clean name yet, those are usually the most interesting ones. The Work With Me page has the full breakdown."],
       [/contact|email|reach|get in touch/,
-        "maddie.rochovansky@atomicmail.io or the contact form at the bottom of the page. If you want to skip the email chain: cal.com/rochovanskym/30min"],
+        "maddie.rochovansky@atomicmail.io or the contact form at the bottom of the page. If you want to skip the email chain: cal.com/rochovanskym/phone-call"],
       [/book|call|schedule|calendar|cal\.com|meeting/,
-        "cal.com/rochovanskym/30min. Thirty minutes, no agenda required."],
+        "cal.com/rochovanskym/phone-call. Thirty minutes, no agenda required."],
       [/linkedin/,
         "linkedin.com/in/maddie-rochovansky"],
 
