@@ -390,27 +390,34 @@ function closeMob() {
 
   var _modalTrigger = null;
   function openModal() {
+    var modal = document.getElementById('contact-modal');
+    if (!modal) return;
     _modalTrigger = document.activeElement;
-   var modal = document.getElementById('contact-modal');
-   modal.classList.add('open');
-   document.body.style.overflow = 'hidden';
-   var first = modal.querySelector('input, button, textarea, [tabindex]');
-   if (first) first.focus();
-}
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    var first = modal.querySelector('input, button, textarea, [tabindex]');
+    if (first) first.focus();
+  }
 
   function closeModal() {
-   document.getElementById('contact-modal').classList.remove('open');
-   document.body.style.overflow = '';
-   if (_modalTrigger) { _modalTrigger.focus(); _modalTrigger = null; }
-}
+    var modal = document.getElementById('contact-modal');
+    if (!modal) return;
+    if (!modal.classList.contains('open')) return;
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+    if (_modalTrigger) { _modalTrigger.focus(); _modalTrigger = null; }
+  }
 
   function handleModalClick(e) {
-    if (e.target === document.getElementById('contact-modal')) closeModal();
+    var modal = document.getElementById('contact-modal');
+    if (!modal) return;
+    if (e.target === modal) closeModal();
   }
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
-      closeModal();
+      var modal = document.getElementById('contact-modal');
+      if (modal && modal.classList.contains('open')) closeModal();
       var panel = document.getElementById('chat-panel');
       if (panel && panel.classList.contains('open')) panel.classList.remove('open');
     }

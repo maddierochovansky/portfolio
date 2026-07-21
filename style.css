@@ -2401,8 +2401,13 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
   padding: 1.1rem 1.5rem;
+  border: none;
   cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
   background: var(--bg2);
   transition: background 0.2s;
   user-select: none;
