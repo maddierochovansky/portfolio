@@ -25,6 +25,31 @@
   .projects-page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 300; line-height: 1.1; color: var(--text); margin-bottom: 0.5rem; letter-spacing: -0.02em; }
   .projects-page-title em { font-style: italic; color: var(--gold); }
   .projects-page-sub { font-size: 0.88rem; color: var(--text3); margin-bottom: 2.5rem; font-weight: 300; }
+  .projects-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.65rem;
+    margin-bottom: 1rem;
+  }
+  .projects-summary-card {
+    border: 1px solid var(--border2);
+    border-radius: var(--radius);
+    padding: 0.7rem 0.8rem;
+    background: linear-gradient(165deg, rgba(17, 17, 20, 0.96), rgba(24, 24, 28, 0.65));
+  }
+  .projects-summary-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.2rem;
+  }
+  .projects-summary-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text3);
+  }
   .projects-search-wrap { margin-bottom: 1.25rem; }
   .projects-search { width: 100%; background: var(--bg2); border: 1px solid var(--border2); border-radius: var(--radius); padding: 0.65rem 1rem; color: var(--text); font-size: 0.85rem; font-family: 'DM Sans', sans-serif; outline: none; transition: border-color 0.2s; }
   .projects-search:focus { border-color: var(--gold-border); }
@@ -188,6 +213,10 @@
     .proj-list-card-date { margin-left: 0; }
     .proj-list-card-tools { margin-left: 0; }
     .proj-list-card-arrow { display: none; }
+    .projects-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 460px) {
+    .projects-summary { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -210,6 +239,10 @@
       <h1 class="projects-page-title fade">All <em>Projects</em></h1>
       <p class="projects-page-sub fade">Every project documented with full context, tools, and outcomes.</p>
 
+      <div class="projects-summary fade" id="projects-summary">
+        <!-- rendered by JS -->
+      </div>
+
       <div class="projects-search-wrap fade">
         <input class="projects-search" id="proj-search" type="search" placeholder="Search projects..." autocomplete="off">
       </div>
@@ -225,18 +258,6 @@
       <div class="no-results" id="no-results" style="display:none;">
         No projects match that filter.
       </div>
-
-      <script>
-       
-        try {
-        
-        } catch (e) {
-          console.error(e);
-          const errorContainer = document.getElementById('no-results');
-          errorContainer.innerText = 'Error: ' + e.message;
-          errorContainer.style.display = 'block';
-        }
-      </script>
 
     </div>
   </section>
@@ -277,6 +298,30 @@
   // ── State ────────────────────────────────────────────────────────────────
   var activeFilter = 'all';
   var searchQuery  = '';
+
+  function buildSummary() {
+    var summaryEl = document.getElementById('projects-summary');
+    if (!summaryEl) return;
+
+    var total = PROJECTS.length;
+    var complete = PROJECTS.filter(function (p) { return p.status === 'complete'; }).length;
+    var ongoing = PROJECTS.filter(function (p) { return p.status === 'ongoing'; }).length;
+    var categories = Object.keys(CAT_LABELS).filter(function (cat) {
+      return PROJECTS.some(function (p) { return p.category === cat; });
+    }).length;
+
+    summaryEl.innerHTML = [
+      { value: total + '+', label: 'Projects documented' },
+      { value: complete, label: 'Completed projects' },
+      { value: ongoing, label: 'Active projects' },
+      { value: categories, label: 'Capability lanes' }
+    ].map(function (item) {
+      return '<div class="projects-summary-card">' +
+        '<div class="projects-summary-value">' + item.value + '</div>' +
+        '<div class="projects-summary-label">' + item.label + '</div>' +
+      '</div>';
+    }).join('');
+  }
 
   // ── Build filter buttons ─────────────────────────────────────────────────
   function buildFilters() {
@@ -449,8 +494,29 @@
     return text.replace(regex, '<mark>$1</mark>');
   }
 
+  function applyUrlState() {
+    var params = new URLSearchParams(window.location.search);
+    var q = params.get('q');
+    var cat = params.get('cat');
+
+    if (q) {
+      searchQuery = q;
+      searchInput.value = q;
+      clearBtn.style.display = 'block';
+    }
+
+    if (cat && (cat === 'all' || CAT_ORDER.indexOf(cat) !== -1)) {
+      activeFilter = cat;
+      document.querySelectorAll('.proj-filter-btn').forEach(function (b) {
+        b.classList.toggle('active', b.dataset.cat === cat);
+      });
+    }
+  }
+
   // ── Init ─────────────────────────────────────────────────────────────────
+  buildSummary();
   buildFilters();
+  applyUrlState();
   renderGrid();
 
 })();

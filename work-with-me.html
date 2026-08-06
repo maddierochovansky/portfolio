@@ -80,7 +80,8 @@
   <ul class="nav-links">
     <li><a href="/#about">About</a></li>
     <li><a href="/projects">Projects</a></li>
-    <li><a href="/" class="nav-gold">Portfolio</a></li>
+    <li><a href="/" class="nav-gold">Full-Time Roles</a></li>
+    <li><a href="/">Home</a></li>
   </ul>
   <button class="ham" id="ham" onclick="toggleMob()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -90,8 +91,9 @@
 <div class="mob-menu" id="mob-menu">
   <a href="/#about" onclick="closeMob()">About</a>
   <a href="/projects" onclick="closeMob()">Projects</a>
+  <a href="/" onclick="closeMob()" class="nav-gold">Full-Time Roles</a>
   <a href="/#contact" onclick="closeMob()">Contact</a>
-  <a href="/" onclick="closeMob()" class="nav-gold">Portfolio</a>
+  <a href="/" onclick="closeMob()">Home</a>
 </div>
 
 <main>
@@ -99,11 +101,11 @@
 <section id="hero">
   <div class="wrap hero-wrap">
 
-    <div class="badge fade">Freelance &nbsp;&middot;&nbsp; Project-based &nbsp;&middot;&nbsp; No retainer required</div>
+    <div class="badge fade">Project-based &nbsp;&middot;&nbsp; Outcome-focused &nbsp;&middot;&nbsp; No retainer required</div>
 
-    <h1 class="hero-title fade">The work,<br>without the <span>overhead.</span></h1>
+    <h1 class="hero-title fade">I fix broken operations.<br>You keep things <span>running.</span></h1>
 
-    <p class="hero-sub fade">Operations problems do not care about org charts. If something is broken, undocumented, or taking three times longer than it should, that is a solvable problem. I take on project-based freelance work across ops, automation, finance, and web.</p>
+    <p class="hero-sub fade">Most operations problems are not complicated. They are undocumented. I audit the breakdown point, rebuild the process, and hand it off with documentation so it runs without me. Project-based support for teams that hit a process wall and need real delivery.</p>
 
     <div class="trust-row fade">
       <div class="trust-cell">
@@ -123,8 +125,9 @@
     <div class="hero-actions fade">
       <a href="mailto:maddie.rochovansky@atomicmail.io" class="btn-gold">Get in Touch</a>
       <a href="https://cal.com/rochovanskym/phone-call" target="_blank" rel="noopener" class="btn-outline">Book a Call</a>
-      <a href="/" class="btn-outline">See My Work</a>
+      <a href="/" class="btn-outline">See Portfolio</a>
     </div>
+    <p class="hero-note-link fade"><a href="/">Hiring for a full-time role? View portfolio and experience &rarr;</a></p>
 
   </div>
 </section>
@@ -138,7 +141,7 @@
 
     <div class="services-grid fade">
 
-      <div class="service-card">
+      <div class="service-card service-card--automation">
         <div>
           <div class="service-icon">
             <svg viewBox="0 0 24 24"><polyline points="13 2 13 9 20 9"></polyline><path d="M20 14.5V7l-7-5H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h8"></path><path d="M17 21v-6"></path><path d="M15 19l2 2 2-2"></path></svg>
@@ -146,6 +149,7 @@
         </div>
         <div>
           <div class="service-name">Workflow Automation</div>
+          <div class="service-outcome">Outcome: Turns repetitive weekly work into a reliable one-click flow.</div>
           <div class="service-desc">Manual processes that run 10, 15, 20 times a week are the ones worth automating. I build Power Automate flows, Office Scripts, and Excel automation that handle the repetitive work so the team does not have to. Intake routing, report generation, remittance emails, batch processing.</div>
         </div>
         <div class="service-tags">
@@ -156,7 +160,7 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card service-card--process">
         <div>
           <div class="service-icon">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
@@ -164,6 +168,7 @@
         </div>
         <div>
           <div class="service-name">Operations Cleanup and SOPs</div>
+          <div class="service-outcome">Outcome: Replaces tribal knowledge with systems the team can run without me.</div>
           <div class="service-desc">Most operations problems are not complicated. They are undocumented. I map existing workflows, identify where things break, rebuild the process, and write documentation clear enough that it does not need me to explain it. The goal is a system that runs without me in it.</div>
         </div>
         <div class="service-tags">
@@ -174,7 +179,7 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card service-card--finance">
         <div>
           <div class="service-icon">
             <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
@@ -182,6 +187,7 @@
         </div>
         <div>
           <div class="service-name">AP and AR Setup and Cleanup</div>
+          <div class="service-outcome">Outcome: Builds accurate, auditable billing and payment operations.</div>
           <div class="service-desc">Messy vendor records, approval workflows nobody follows, invoices that live in three different places. I have seen all of it. I build AP and AR systems that are accurate, auditable, and not held together by one person's tribal knowledge. Setup, cleanup, or both.</div>
         </div>
         <div class="service-tags">
@@ -192,7 +198,7 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card service-card--reporting">
         <div>
           <div class="service-icon">
             <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path></svg>
@@ -200,6 +206,7 @@
         </div>
         <div>
           <div class="service-name">Excel and Reporting</div>
+          <div class="service-outcome">Outcome: Gives leadership reports they can trust and teams can maintain.</div>
           <div class="service-desc">Dashboards, financial reports, and data models built to be used by the people who need them, not just the person who built them. Custom workbooks with validation, XLOOKUP, PivotTables, and Office Scripts. Power BI dashboards for anything that needs to live outside a spreadsheet.</div>
         </div>
         <div class="service-tags">
@@ -210,7 +217,7 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card service-card--m365">
         <div>
           <div class="service-icon">
             <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
@@ -218,6 +225,7 @@
         </div>
         <div>
           <div class="service-name">SharePoint and Microsoft 365</div>
+          <div class="service-outcome">Outcome: Creates a clean operating environment people can actually navigate.</div>
           <div class="service-desc">Document management that people actually use. I build SharePoint intranet hubs, set up folder structures that make sense, connect Microsoft Forms to Power Automate for automated intake and routing, and clean up the Microsoft 365 environments that have grown too organically to navigate.</div>
         </div>
         <div class="service-tags">
@@ -228,7 +236,7 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card service-card--web">
         <div>
           <div class="service-icon">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
@@ -236,6 +244,7 @@
         </div>
         <div>
           <div class="service-name">Web Build and SEO</div>
+          <div class="service-outcome">Outcome: Delivers a credible web presence that ranks and converts.</div>
           <div class="service-desc">Static HTML sites built clean and deployed via Cloudflare. No bloated CMS, no unnecessary dependencies. Paired with a full SEO audit covering keyword targeting, meta structure, and on-page fundamentals. Good for small businesses that need a real web presence without the agency price tag.</div>
         </div>
         <div class="service-tags">
@@ -389,6 +398,22 @@
         <div class="faq-a">That is the goal. Every project includes documentation. If I build something you cannot run without calling me every month, I did not finish the job.</div>
       </div>
 
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How is this different from hiring a full-time operations person?</span>
+          <span class="faq-chevron"></span>
+        </button>
+        <div class="faq-a">A full-time hire owns ongoing operations. I handle defined projects with a clear deliverable and handoff. If you need day-to-day ownership long term, you should hire in-house. If you need a system rebuilt quickly and correctly, that is where I fit.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" onclick="toggleFaq(this)">
+          <span class="faq-q-text">What happens after the project ends?</span>
+          <span class="faq-chevron"></span>
+        </button>
+        <div class="faq-a">You get full documentation and a clean handoff so your team can run the process without me. If you need follow-up support later, we scope that as a separate project.</div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -402,7 +427,7 @@
     <div class="contact-grid fade">
       <div>
         <p class="contact-intro">Describe the problem, the tool, or the process. If you know the outcome you need but not the path to get there, that is fine. That part is what I am here for.</p>
-        <p class="contact-note">Usually responds within one business day. If the project is not a fit I will say so.</p>
+        <p class="contact-note">Usually responds within one business day. If you are not sure what to ask for yet, start with the problem and I can help scope the right project.</p>
       </div>
       <div class="contact-options">
         <a href="mailto:maddie.rochovansky@atomicmail.io" class="contact-opt">

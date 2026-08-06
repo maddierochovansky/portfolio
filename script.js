@@ -337,6 +337,99 @@ function closeMob() {
   window.toggleAllCerts = toggleAllCerts;
 
   // ==========================================================================
+  // HOMEPAGE PROJECT SHOWCASE - data-driven
+  // ==========================================================================
+
+  function renderHomeProjectShowcase() {
+    if (typeof PROJECTS === 'undefined') return;
+
+    var featuredEl = document.getElementById('home-featured-projects');
+    var lanesEl = document.getElementById('home-project-lanes');
+    var proofEl = document.getElementById('projects-proof');
+    if (!featuredEl || !lanesEl || !proofEl) return;
+
+    var CAT_LABELS = {
+      automation: 'Automation',
+      process: 'Process Improvement',
+      data: 'Data and Analytics',
+      financial: 'Financial Reporting',
+      systems: 'Systems and IT',
+      web: 'Web and Digital'
+    };
+    var CAT_ORDER = ['automation', 'process', 'data', 'financial', 'systems', 'web'];
+
+    function esc(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function trunc(str, n) {
+      if (!str || str.length <= n) return str || '';
+      return str.slice(0, n - 1).trim() + '...';
+    }
+
+    function buildToolChips(project) {
+      if (!project.tools || !project.tools.length) return '';
+      return project.tools.slice(0, 3).map(function (tool) {
+        var tClass = tool.type ? ' tc-' + esc(tool.type) : '';
+        return '<span class="tool-chip' + tClass + '">' + esc(tool.label) + '</span>';
+      }).join('');
+    }
+
+    var total = PROJECTS.length;
+    var complete = PROJECTS.filter(function (p) { return p.status === 'complete'; }).length;
+    var ongoing = PROJECTS.filter(function (p) { return p.status === 'ongoing'; }).length;
+    var autoSystems = PROJECTS.filter(function (p) { return p.category === 'automation' || p.category === 'systems'; }).length;
+
+    proofEl.innerHTML = [
+      { value: total + '+', label: 'Documented projects' },
+      { value: complete, label: 'Completed builds' },
+      { value: ongoing, label: 'Active initiatives' },
+      { value: autoSystems, label: 'Automation and systems projects' }
+    ].map(function (metric) {
+      return '<div class="project-proof-chip">' +
+        '<div class="project-proof-value">' + esc(metric.value) + '</div>' +
+        '<div class="project-proof-label">' + esc(metric.label) + '</div>' +
+      '</div>';
+    }).join('');
+
+    var featured = PROJECTS.filter(function (p) { return p.featured; }).slice(0, 4);
+    if (!featured.length) featured = PROJECTS.slice(0, 4);
+
+    featuredEl.innerHTML = featured.map(function (p) {
+      var catLabel = CAT_LABELS[p.category] || p.category;
+      return '<a class="feat-proj-card" href="/projects/' + esc(p.slug) + '">' +
+        '<div class="feat-proj-cat">' + esc(catLabel) + '</div>' +
+        '<div class="feat-proj-name">' + esc(p.name) + '</div>' +
+        '<div class="feat-proj-outcome">Outcome</div>' +
+        '<div class="feat-proj-impact">' + esc(p.impact || p.preview || '') + '</div>' +
+        '<div class="feat-proj-tools">' + buildToolChips(p) + '</div>' +
+        '<div class="feat-proj-link">Read case study &rarr;</div>' +
+      '</a>';
+    }).join('');
+
+    lanesEl.innerHTML = CAT_ORDER.map(function (cat) {
+      var items = PROJECTS.filter(function (p) { return p.category === cat; });
+      if (!items.length) return '';
+
+      var lead = items.find(function (p) { return p.featured; }) || items[0];
+      return '<a class="projects-lane-link" href="/projects?cat=' + esc(cat) + '">' +
+        '<div class="projects-lane-top">' +
+          '<span class="projects-lane-name">' + esc(CAT_LABELS[cat] || cat) + '</span>' +
+          '<span class="projects-lane-count">' + esc(items.length) + ' projects</span>' +
+        '</div>' +
+        '<div class="projects-lane-note">' + esc(trunc(lead.impact || lead.preview || '', 88)) + '</div>' +
+      '</a>';
+    }).join('');
+  }
+
+  renderHomeProjectShowcase();
+
+  // ==========================================================================
   // EXPERIENCE - expand / collapse chips
   // ==========================================================================
 
@@ -460,6 +553,26 @@ function closeMob() {
   // EXPOSE GLOBALS
   // (called from inline onclick handlers in HTML - will be cleaned up later)
   // ==========================================================================
+
+  function injectProjectFlowCta() {
+    var projWrap = document.querySelector('.proj-page .wrap');
+    if (!projWrap || document.querySelector('.proj-page-flow')) return;
+
+    var flow = document.createElement('div');
+    flow.className = 'proj-page-section proj-page-flow fade';
+    flow.innerHTML =
+      '<div class="proj-page-section-label">What Next</div>' +
+      '<p class="proj-flow-copy">If this project looks similar to what your team is dealing with, start with the portfolio for role fit or use the work-with-me page for project-based support.</p>' +
+      '<div class="proj-flow-actions">' +
+        '<a href="/projects" class="btn-outline">Browse All Projects</a>' +
+        '<a href="/work-with-me" class="btn-gold">Work With Me</a>' +
+      '</div>';
+
+    projWrap.appendChild(flow);
+    if (typeof obs !== 'undefined') obs.observe(flow);
+  }
+
+  injectProjectFlowCta();
 
   window.filterProj      = filterProj;
   window.rotateFun       = rotateFun;

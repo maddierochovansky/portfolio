@@ -162,22 +162,22 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(10,1
     <div class="hero-layout">
       <div class="hero-text">
 
-        <h1 class="hero-title fade">The person behind<br><span>the process.</span></h1>
+        <h1 class="hero-title fade">The person who fixes<br><span>the process.</span></h1>
 
-        <p class="hero-sub fade">Finance background. Systems mindset. I build workflows that make operations faster and harder to break.</p>
+        <p class="hero-sub fade">Built operational systems at mid-market companies. Now helping teams scale without chaos through cleaner workflows, better controls, and documentation that holds up.</p>
 
         <div class="fade hero-stats-grid">
           <div class="hero-stat-cell">
             <div class="hero-stat-num">89%</div>
-            <div class="hero-stat-label">Batch processing time reduction</div>
+            <div class="hero-stat-label">Time reduction from 45 to 5 minutes per batch</div>
           </div>
           <div class="hero-stat-cell">
             <div class="hero-stat-num">600+</div>
-            <div class="hero-stat-label">Monthly transactions, zero late payments</div>
+            <div class="hero-stat-label">Invoices per month with 100% on-time payment rate</div>
           </div>
           <div class="hero-stat-cell">
             <div class="hero-stat-num">$6k+</div>
-            <div class="hero-stat-label">Annual cost savings identified</div>
+            <div class="hero-stat-label">Annual savings identified from a single audit</div>
           </div>
         </div>
 
@@ -204,15 +204,15 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(10,1
         </div>
 
         <div class="hero-actions fade">
-          <a href="#projects" class="btn-gold">See My Work</a>
-          <a href="https://cal.com/rochovanskym/phone-call" target="_blank" rel="noopener" class="btn-outline">Book a Call</a>
-          <a href="https://maddierochovansky.com/assets/madison_rochovansky_resume.pdf" target="_blank" rel="noopener" class="btn-outline">Resume</a>
+          <a href="#projects" class="btn-gold">Explore My Work</a>
+          <a href="https://cal.com/rochovanskym/phone-call" target="_blank" rel="noopener" class="btn-outline">15 Min Call</a>
         </div>
+        <p class="hero-note-link fade"><a href="https://maddierochovansky.com/assets/madison_rochovansky_resume.pdf" target="_blank" rel="noopener">Download resume &rarr;</a></p>
 
       </div>
       <div class="hero-photo fade">
         <img src="assets/photo.jpg" alt="Maddie Rochovansky" class="photo-img" width="200" height="200" loading="eager">
-        <div class="badge fade"><span class="badge-dot"></span>Open to remote roles &nbsp;&middot;&nbsp; Available now</div>
+        <div class="badge fade"><span class="badge-dot"></span>Available for full-time roles &nbsp;&middot;&nbsp; Open to project work</div>
       </div>
     </div>
   </div>
@@ -226,34 +226,29 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(10,1
 <section id="projects">
   <div class="wrap">
     <div class="label fade">Projects</div>
-    <h2 class="sec-title fade">Things I have <em>built</em></h2>
+    <h2 class="sec-title fade">Proof of work, not just <em>project titles</em></h2>
+    <p class="sec-subtitle fade">Browse outcomes first, then drill into complete case studies with context, tools, and STAR documentation.</p>
 
-    <div class="feat-proj-grid fade">
+    <div class="projects-proof fade" id="projects-proof">
+      <!-- rendered by JS -->
+    </div>
 
-      <a class="feat-proj-card" href="/projects/invoice-processing-automation">
-        <div class="feat-proj-cat">Automation</div>
-        <div class="feat-proj-name">Invoice Processing Automation</div>
-        <div class="feat-proj-impact">45 minutes per batch became 5. 89% time reduction across 15+ weekly batches.</div>
-        <div class="feat-proj-link">View project &rarr;</div>
-      </a>
+    <div class="projects-showcase-layout">
+      <div class="feat-proj-grid fade" id="home-featured-projects">
+        <!-- rendered by JS -->
+      </div>
 
-      <a class="feat-proj-card" href="/projects/records-deduplication-and-cost-analysis">
-        <div class="feat-proj-cat">Process Improvement</div>
-        <div class="feat-proj-name">Records Deduplication &amp; Cost Analysis</div>
-        <div class="feat-proj-impact">$6,000+ annual savings identified. 75% reduction in ongoing review time.</div>
-        <div class="feat-proj-link">View project &rarr;</div>
-      </a>
-
-      <a class="feat-proj-card" href="/projects/portfolio-site">
-        <div class="feat-proj-cat">Development</div>
-        <div class="feat-proj-name">This Portfolio Site</div>
-        <div class="feat-proj-impact">Hand-coded in HTML, CSS, and JavaScript. Zero frameworks, zero dependencies.</div>
-        <div class="feat-proj-link">View project &rarr;</div>
-      </a>
-
+      <aside class="projects-lanes fade" aria-label="Browse projects by capability">
+        <h3 class="projects-lanes-title">Explore By Capability</h3>
+        <p class="projects-lanes-sub">Jump straight to the kind of work you care about, then review each implementation in detail.</p>
+        <div class="projects-lane-list" id="home-project-lanes">
+          <!-- rendered by JS -->
+        </div>
+      </aside>
     </div>
 
     <div class="proj-cta-row fade">
+      <a href="/projects" class="btn-gold">Browse full project archive</a>
       <a href="/projects" class="btn-outline">View all projects &rarr;</a>
     </div>
 
@@ -617,6 +612,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(10,1
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script src="data/certifications.js"></script>
+<script src="data/projects.js"></script>
 <script src="script.js"></script>
 <script src="chat.js"></script>
 
