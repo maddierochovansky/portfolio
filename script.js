@@ -115,6 +115,23 @@
   // EXPERIENCE - render from data/experience.js
   // ==========================================================================
 
+  // Color an experience chip by the Toolkit group that lists it,
+  // matching on the tool name before any "(...)" detail.
+  var _toneByTool = null;
+  function toolTone(label) {
+    if (typeof TOOLKIT === 'undefined') return null;
+    if (!_toneByTool) {
+      _toneByTool = {};
+      TOOLKIT.forEach(function (g) {
+        g.tools.concat(g.aliases || []).forEach(function (t) {
+          var key = t.replace(/&amp;/g, '&').replace(/\s*\(.*\)$/, '').toLowerCase();
+          _toneByTool[key] = g.tone;
+        });
+      });
+    }
+    return _toneByTool[label.toLowerCase()] || null;
+  }
+
   function renderExperience() {
     var el = document.getElementById('exp-list');
     if (!el || typeof EXPERIENCE === 'undefined') return;
@@ -133,7 +150,8 @@
         : '';
 
       var chips = job.chips.map(function (c, i) {
-        return '<span class="exp-chip' + (i >= visChips ? ' exp-chip-hidden' : '') + '">' + esc(c) + '</span>';
+        var tone = toolTone(c);
+        return '<span class="exp-chip' + (tone ? ' tone-' + tone : '') + (i >= visChips ? ' exp-chip-hidden' : '') + '">' + esc(c) + '</span>';
       }).join('');
       var hiddenCount = job.chips.length - visChips;
       var chipToggle = hiddenCount > 0
@@ -166,10 +184,11 @@
     if (!el || typeof TOOLKIT === 'undefined') return;
 
     el.innerHTML = TOOLKIT.map(function (group) {
-      return '<div class="toolkit-group">' +
+      var tone = group.tone ? ' tone-' + group.tone : '';
+      return '<div class="toolkit-group' + tone + '">' +
         '<div class="toolkit-group-name">' + group.name + '</div>' +
         '<div class="toolkit-tools">' +
-          group.tools.map(function (t) { return '<span class="toolkit-tool">' + t + '</span>'; }).join('') +
+          group.tools.map(function (t) { return '<span class="toolkit-tool' + tone + '">' + t + '</span>'; }).join('') +
         '</div>' +
       '</div>';
     }).join('');

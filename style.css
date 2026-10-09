@@ -2422,6 +2422,25 @@ a.blog-card {
   line-height: 1.5;
 }
 
+/* Tones: one color per Toolkit group, shared by Toolkit and Experience chips */
+.tone-blue   { --tone: 126, 184, 212; }
+.tone-purple { --tone: 168, 159, 212; }
+.tone-teal   { --tone: 126, 212, 200; }
+.tone-orange { --tone: 212, 160, 126; }
+.tone-sand   { --tone: 212, 185, 126; }
+.tone-green  { --tone: 136, 201, 160; }
+
+.toolkit-group[class*="tone-"] .toolkit-group-name { color: rgb(var(--tone)); }
+.toolkit-group[class*="tone-"] { border-top: 2px solid rgba(var(--tone), 0.55); }
+
+.toolkit-tool[class*="tone-"],
+.exp-chip[class*="tone-"] {
+  background: rgba(var(--tone), 0.78);
+  border-color: rgba(var(--tone), 0.9);
+  color: #0a0a0c;
+  font-weight: 500;
+}
+
 @media (max-width: 900px) {
   .toolkit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
