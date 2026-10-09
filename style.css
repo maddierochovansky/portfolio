@@ -2434,7 +2434,8 @@ a.blog-card {
 .toolkit-group[class*="tone-"] { border-top: 2px solid rgba(var(--tone), 0.55); }
 
 .toolkit-tool[class*="tone-"],
-.exp-chip[class*="tone-"] {
+.exp-chip[class*="tone-"],
+.tool-chip[class*="tone-"] {
   background: rgba(var(--tone), 0.78);
   border-color: rgba(var(--tone), 0.9);
   color: #0a0a0c;

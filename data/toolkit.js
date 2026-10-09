@@ -20,7 +20,7 @@ const TOOLKIT = [
     tone: "orange",
     tools: ["Stripe", "SAP", "QuickBooks Online", "Gusto", "AP &amp; AR", "Billing &amp; reconciliation", "Monthly close"],
     // Extra names used as experience chips, so they pick up this group's color
-    aliases: ["AP", "AR", "Month-End Close", "Collections"],
+    aliases: ["AP", "AR", "Month-End Close", "Collections", "SAP ERP"],
   },
   {
     name: "IT &amp; Security",

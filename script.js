@@ -115,12 +115,12 @@
   // EXPERIENCE - render from data/experience.js
   // ==========================================================================
 
-  // Color an experience chip by the Toolkit group that lists it,
-  // matching on the tool name before any "(...)" detail.
+  // Chip color: the Toolkit group that lists the tool (matching on the name
+  // before any "(...)" detail), else the project's category for that tool.
+  var TYPE_TONE = { automation: 'blue', data: 'purple', finance: 'orange', process: 'green', systems: 'sand', web: 'teal' };
   var _toneByTool = null;
-  function toolTone(label) {
-    if (typeof TOOLKIT === 'undefined') return null;
-    if (!_toneByTool) {
+  function toolTone(label, type) {
+    if (!_toneByTool && typeof TOOLKIT !== 'undefined') {
       _toneByTool = {};
       TOOLKIT.forEach(function (g) {
         g.tools.concat(g.aliases || []).forEach(function (t) {
@@ -129,8 +129,15 @@
         });
       });
     }
-    return _toneByTool[label.toLowerCase()] || null;
+    return (_toneByTool && _toneByTool[String(label).trim().toLowerCase()]) || TYPE_TONE[type] || null;
   }
+
+  // Static project pages ship plain chips with a data-type; color them here.
+  document.querySelectorAll('.tool-chip[data-type]').forEach(function (el) {
+    var tone = toolTone(el.textContent, el.getAttribute('data-type'));
+    if (tone) el.classList.add('tone-' + tone);
+  });
+  window.toolTone = toolTone;
 
   function renderExperience() {
     var el = document.getElementById('exp-list');
@@ -286,7 +293,8 @@
     var featured = PROJECTS.filter(function (p) { return p.featured; });
     el.innerHTML = featured.map(function (p) {
       var tools = (p.tools || []).slice(0, 3).map(function (t) {
-        return '<span class="tool-chip">' + esc(t.label) + '</span>';
+        var tone = toolTone(t.label, t.type);
+        return '<span class="tool-chip' + (tone ? ' tone-' + tone : '') + '">' + esc(t.label) + '</span>';
       }).join('');
       return '<a class="feat-proj-card" href="/projects/' + esc(p.slug) + '">' +
         '<div class="feat-proj-cat">' + esc(CAT_LABELS[p.category] || p.category) + '</div>' +

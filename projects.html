@@ -138,6 +138,8 @@
 </button>
 
 <script src="data/projects.js"></script>
+<script src="data/toolkit.js"></script>
+<script src="script.js"></script>
 <script>
 (function () {
   // ── Category display config ──────────────────────────────────────────────
@@ -200,7 +202,8 @@
   function toolChips(tools) {
     if (!tools || !tools.length) return '';
     return tools.slice(0, 4).map(function (t) {
-      return '<span class="tool-chip">' + t.label + '</span>';
+      var tone = window.toolTone ? window.toolTone(t.label, t.type) : null;
+      return '<span class="tool-chip' + (tone ? ' tone-' + tone : '') + '">' + t.label + '</span>';
     }).join('');
   }
 
@@ -270,6 +273,5 @@
 
 })();
 </script>
-<script src="script.js"></script>
 </body>
 </html>
