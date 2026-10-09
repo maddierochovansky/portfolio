@@ -5,10 +5,10 @@
   // ==========================================================================
 
   var _sugPool = {
-    work:       ["What tools do you use?", "What are you certified in?", "What is your strongest skill?", "Tell me about your projects", "What does your automation work look like?", "What is your experience with SAP?"],
+    work:       ["What tools do you use?", "How do you use AI?", "What are you certified in?", "What is your strongest skill?", "What does your automation work look like?", "What is your experience with SAP?"],
     background: ["Where are you from?", "How did you get into operations?", "Tell me about your experience", "What have you won awards for?", "Where have you worked?"],
     personal:   ["What are you reading?", "Where do you want to travel?", "What do you do outside of work?", "What are you bad at?", "Tell me something fun", "What have you built professionally?"],
-    job:        ["What are you looking for?", "Where are you based?", "Are you available to freelance?", "Can I book a call?", "Are you authorized to work in the US?"],
+    job:        ["What are you looking for?", "Where are you based?", "How do I reach you?", "Are you authorized to work in the US?"],
     fun:        ["Impress me", "What do your coworkers say?", "Are you a real person?", "What is your weakness?", "What would your cats say about you?"]
   };
 
@@ -16,10 +16,10 @@
   var _sugSeen    = [];
 
   var _sugContextMap = {
-    work:       /tool|software|tech|certif|credential|built|project|automat|invoice|asset|superpower|strength|skill|sap|excel|hubspot|power automate/,
+    work:       /tool|software|tech|certif|credential|built|project|automat|invoice|asset|superpower|strength|skill|sap|excel|hubspot|power automate|make|monday|stripe|\bai\b|claude/,
     background: /experience|background|career|history|award|recognition|where.*from|florida|clearwater|how.*get|why ops|worked|got into/,
     personal:   /read|book|travel|amsterdam|europe|fun|hobb|outside|personal|free time|cats|pets|weakness|bad at/,
-    job:        /looking for|open to|freelance|consult|salary|location|remote|book|call|schedule|contact|email|authorized|visa/,
+    job:        /looking for|open to|salary|location|remote|reach|contact|email|authorized|visa/,
     fun:        /impress|convince|coworker|colleague|real person|human|bot|robot|spreadsheet|chaos|42|cats.*say/
   };
 
@@ -80,16 +80,6 @@
     _renderSuggestions(fixed);
   }
 
-  function debugChat() {
-    console.log('Chat Debug Info:');
-    console.log('Panel element:', document.getElementById('chat-panel'));
-    console.log('Suggestions element:', document.getElementById('chat-suggestions'));
-    console.log('Input element:', document.getElementById('chat-input'));
-    console.log('Messages element:', document.getElementById('chat-messages'));
-    console.log('Current suggestions:', _sugCurrent);
-    console.log('Seen suggestions:', _sugSeen);
-  }
-
   function _refreshSuggestions(bucket) {
     var next = _pickSuggestions(3, bucket);
     _sugSeen    = _sugSeen.concat(next);
@@ -143,10 +133,10 @@
   var _lastQ       = '';
   var _impressIdx  = 0;
   var _impressResponses = [
-    "Invoice batches went from 45 minutes to 5. Storage costs that had never been audited. CFO reporting built where none existed. I did most of it without being asked. That is the whole pitch.",
+    "Invoice batches went from 45 minutes to 5. $6,000 a year found in one audit. Most of a startup's automations built and maintained in my first six months. I did most of it without being asked. That is the whole pitch.",
     "Two awards in two years for work that was not in my job description. The job description and what I actually did were related mainly by location.",
-    "I came in to process invoices. I ended up automating the invoices, auditing storage no one had looked at, building IT tracking across 120 devices, and writing documentation for all of it. The invoices still got processed.",
-    "From AR Coordinator to SAP automation, CFO reporting, and Apple Business Manager rollout. My title did not change. The scope of the work did.",
+    "I came in to process invoices. I ended up automating the invoices, auditing costs no one had looked at, raising IT asset accuracy from 85% to 98%, and writing documentation for all of it. The invoices still got processed.",
+    "AR Coordinator, promoted to AP within 8 months, then AP and IT at Mitsubishi, now running operations at a remote startup with Make, monday.com, and Claude. The scope keeps growing because I keep finding things to fix.",
     "I find the thing nobody documented, figure out why it has been broken, fix it, and document it well enough that it stays fixed without me. That is not a skill most people lead with. It should be."
   ];
 
@@ -170,13 +160,13 @@
       [/\bf+u+c+k+|s+h+i+t+|\bb+i+t+c+h+|\ba+s+s+h+o+l+e+|\bc+u+n+t+|\bd+i+c+k+|\bc+o+c+k+|\bp+u+s+s+y+|\bt+i+t+s+|\bn+u+d+e+|\bs+e+x+y+|\bf+a+p+|\bh+o+r+n+y+|\blewd\b|\bdirty\b|\bnsfw\b/,
         "Watch the language. This is a professional portfolio. Mostly."],
       [/\bstupid\b|\bidiot\b|\bdumb\b|\buseless\b|\bworthless\b|\bhate you\b|\bscrew you\b|\bshut up\b/,
-        "Rude. The actual human behind this is much more fun to talk to. maddie.rochovansky@atomicmail.io"],
-      [/chatgpt|openai|gpt-?4|claude|anthropic|gemini|llm|language model|are you (an )?ai/,
-        "Technically a bot living on a portfolio site. The specifics are not important. What matters is everything in here is accurate and the person behind it is very much real and available."],
+        "Rude. The actual human behind this is much more fun to talk to. madison.rochovansky@gmail.com"],
+      [/are you (an )?ai|are you (a )?(chatgpt|claude|llm|language model)|what model/,
+        "Technically a bot living on a portfolio site, and a simple one at that. Everything in here is accurate and the person behind it is very much real. Ask about how she uses AI at work instead, that part is more interesting."],
       [/phone number|address|where.*live|home address|personal.*info|private.*info/,
-        "Not going to happen. Email works: maddie.rochovansky@atomicmail.io"],
+        "Not going to happen. Email works: madison.rochovansky@gmail.com"],
       [/i can help you|more leads|grow your business|seo|marketing services|my (agency|company|service)|collaboration opportunity/,
-        "This is a job search chatbot, not a sales call. Hard pass."],
+        "This is a portfolio chatbot, not a sales call. Hard pass."],
 
       // easter eggs
       [/^(open sesame|password|secret)$/,   "You found one. There is at least one more in here somewhere."],
@@ -188,7 +178,7 @@
       [/^(hi|hello|hey|howdy|sup|yo|hiya)[!.\s]*$/, "Hi. Ask me anything about Maddie, what she has built, or what she is looking for. Or just try something weird."],
       [/boyfriend|dating|taken|single|relationship/, "Hi Tristen! (or weird stranger)"],
       [/\bchaos\b/,                          "Managed professionally. Light chaos is where the best work happens anyway."],
-      [/^hire her$|^hire maddie$|^hired$/,   "Good call. maddie.rochovansky@atomicmail.io"],
+      [/^hire her$|^hire maddie$|^hired$/,   "Good call. madison.rochovansky@gmail.com"],
 
       // cats - must come before broad 'about you' rules
       [/what.*cats.*say|cats.*think|griffith.*think|charlotte.*think|cats say/,
@@ -196,13 +186,13 @@
 
       // projects + experience
       [/tell me about your project|about.*project/,
-        "Projects span automation, process improvement, data and analytics, financial ops, and systems. The Projects section has highlights from each area with full detail on each one."],
+        "A handful of write-ups across automation, process improvement, financial reporting, and IT: invoice batch automation, an SAP pre-validation check, a records audit that found $6,000+ a year, and IT asset tracking, among others. The Selected Work section links to all of them."],
       [/tell me about your experience|about.*experience/,
-        "3+ years across AP, AR, IT operations, and workflow automation. Currently at Mitsubishi International Food Ingredients as Accounts Payable & IT Administrative Assistant (Operations, Finance & IT). Before that, AP Coordinator and AR Coordinator at SCC Soft Computer in Clearwater, FL. The Experience section has the full timeline."],
+        "Four years across finance, IT, and client operations. Currently Operations Associate at DocWealth, a remote startup. Before that, AP and IT Administrative Assistant at Mitsubishi International Food Ingredients, and AP and AR Coordinator at SCC Soft Computer. The Experience section has the full timeline."],
       [/what ha(s she|ve you) built|built professionally/,
-        "Projects span automation, process improvement, data and analytics, financial ops, and systems. The Projects section has highlights across all of those areas with real numbers and full detail on each one."],
+        "At DocWealth: most of the company's automations and data checks, in Make, monday.com, and Apps Script, plus Claude-powered flows that sort client messages and diagnose errors. Before that: invoice batch automation, an SAP pre-validation check, and IT asset tracking at Mitsubishi. The Selected Work section has write-ups."],
       [/what have you built|show me.*work|portfolio/,
-        "Projects span automation, process improvement, data and analytics, financial ops, and systems. The Projects section has highlights across all of those areas with real numbers and full detail on each one."],
+        "At DocWealth: most of the company's automations and data checks, in Make, monday.com, and Apps Script, plus Claude-powered flows that sort client messages and diagnose errors. Before that: invoice batch automation, an SAP pre-validation check, and IT asset tracking at Mitsubishi. The Selected Work section has write-ups."],
       [/what.*experience.*sap|experience.*with.*sap/,
         "SAP ERP has been part of the day-to-day since 2022, across both AP and AR roles. Used it for invoice processing, payment runs, and month-end close. Built an Excel pre-validation layer upstream of SAP that eliminated 40+ manual posting corrections per month."],
       [/outside.*work|what do you do.*outside|free time|hobbi/,
@@ -216,61 +206,65 @@
 
       // work identity
       [/^what do you (actually )?do\??$|^who are you\??$|^about (maddie|you|yourself)\??$/,
-        "Operations and process improvement. AP and AR background, IT administration, and workflow automation. I find where things break and build fixes that hold."],
+        "Business operations, process automation, and AI workflows. Finance and IT background, now running operations at a remote startup. I find where things break, automate the manual work, and document it so it keeps running."],
+
+      // AI
+      [/how.*use ai|\bai\b|claude|anthropic|chatgpt|openai|gemini|llm|mcp|agent/,
+        "Claude is part of daily operations at DocWealth: custom skills and automations that sort and route client messages, and a flow that diagnoses failed automations. At Mitsubishi I built Claude skills for SAP invoice batches, SOP drafting, and reconciliations. Comfortable with the API, Skills, Projects, agents, and MCP connectors."],
       [/tool|tech stack|software|what.*use/,
-        "Power Automate, Office Scripts, SAP ERP, Excel, SQL, HubSpot, SharePoint, Airtable, Lucidchart, Apple Business Manager, Asana, Monday.com, Microsoft Forms, Certify. If it has documentation I will learn it. If it does not, I will figure it out and write the documentation."],
+        "Automation: Claude, Make, Power Automate, Apps Script, Office Scripts. Platforms: monday.com, Airtable, Asana, Google Workspace, Microsoft 365. Finance: Stripe, SAP, QuickBooks Online, Gusto. Data: advanced Excel, Google Sheets, Power BI, some SQL and JavaScript. The Toolkit section has the full list."],
       [/certif|credential|certified/,
-        "Mix of formal certifications and continuing education across 5 areas: Process & Operations, Risk & Compliance, Supply Chain & Logistics, Data & Technology, and Continuing Education. The featured three are Lean Six Sigma Green Belt, FMEA ISO 31000, and HubSpot Revenue Operations. Full breakdown is in the Certifications section."],
+        "Lean Six Sigma Green Belt and Process Mapping through Six Sigma Academy Amsterdam, HubSpot Revenue Operations, and Project Management and AML/KYC through Udemy, plus continuing education in supply chain, risk, and data. Full list is in the Certifications section."],
       [/six sigma|lean|green belt/,
-        "Certified Lean Six Sigma Green Belt through SSAA. Also: Process Improvement & Process Mapping Expert, Lean Management & Manufacturing Expert, ISO 9001, and IATF 16949. Process improvement is not just a talking point."],
+        "Certified Lean Six Sigma Green Belt through Six Sigma Academy Amsterdam. Also: Process Improvement & Process Mapping Expert, Lean Management & Manufacturing Expert, ISO 9001, and IATF 16949. Process improvement is not just a talking point."],
       [/hubspot|revops|revenue ops/,
-        "HubSpot Revenue Operations certified through HubSpot Academy. Also HubSpot Content Hub Software. RevOps is one of the directions I am actively moving toward."],
+        "HubSpot Revenue Operations certified through HubSpot Academy. Also HubSpot Content Hub Software."],
       [/\bsap\b/,
-        "SAP ERP has been part of the day-to-day since 2022, across both AP and AR roles. Used it for invoice processing, payment runs, and month-end close. Also built an Excel pre-validation layer upstream of SAP that eliminated 40+ manual posting corrections per month."],
+        "SAP was part of the day-to-day from 2022 to 2026, across AR and AP roles: invoice processing, payment runs, and month-end close. Also built a check that catches bad entries before they reach SAP, which cut posting corrections by 40+ a month."],
       [/excel|office script/,
         "Probably the tool I use most. Dashboards, financial reports, validation logic, asset tracking. If it can be done in Excel I have probably done it. Office Scripts on top of that for automation without leaving the spreadsheet."],
       [/power automate|automat/,
-        "Built several flows: post-payment remittance emails for 50+ vendors, SharePoint intake routing, invoice batch processing. Power Automate is the connective tissue between a lot of the systems work."],
+        "These days mostly Make, monday.com automations, and Apps Script, with Claude wherever classification or diagnosis helps. Before that, Power Automate and Office Scripts: invoice batches went from 45 minutes to 5, plus remittance emails and SharePoint intake routing."],
       [/sharepoint|microsoft 365|m365/,
         "Built the full SharePoint infrastructure at MIFI: two department hubs, shared drives, Microsoft Forms intake, and Power Automate routing. Centralized document management across the organization where none existed."],
       [/airtable/,
         "Built the vendor lifecycle system at MIFI in Airtable: onboarding intake, contract tracking, performance threshold alerts, relationship management across 50+ accounts."],
-      [/sql/,
-        "Used SQL at SCC Soft Computer to extract invoice data, cross-reference contract terms, and flag pricing variances across 500+ accounts. Maintained 99%+ accuracy on 200+ monthly transactions."],
+      [/\bsql\b/,
+        "Basic SQL. Used it at SCC Soft Computer alongside contract terms to sort out billing discrepancies across 500+ customer accounts."],
+      [/monday|make\.com|\bmake\b|apps script|stripe|quickbooks|gusto/,
+        "Daily tools at DocWealth. Make, monday.com, and Apps Script run most of the company's automations and data checks, and Stripe and QuickBooks Online are where the monthly billing reconciliation happens."],
       [/apple.*business|abm|mdm|device.*manag/,
-        "Led the Apple Business Manager implementation end-to-end across 55+ devices and 4 carriers. In the Systems tab alongside the IT Coordination and Microsoft 365 projects."],
+        "Led the Apple Business Manager implementation end-to-end across 55+ devices and 4 carriers at Mitsubishi, alongside Intune and user access management. There is a write-up in the projects."],
 
       // background
       [/where.*work|where.*worked|where.*have.*work/,
-        "Mitsubishi International Food Ingredients currently, as Accounts Payable & IT Administrative Assistant. Before that, AP Coordinator and AR Coordinator at SCC Soft Computer. Full timeline is in the Experience section."],
-      [/current.*job|current.*role|where.*currently|mifi|mitsubishi/,
-        "Accounts Payable & IT Administrative Assistant at Mitsubishi International Food Ingredients, though the scope covers operations, finance, and IT. 600+ monthly vendor transactions, 120+ devices, CFO-level reporting, SharePoint infrastructure, and a long list of things that are now automated that were not before I got there. Two company awards in 18 months for work outside the job description."],
+        "DocWealth currently, as Operations Associate. Before that, Mitsubishi International Food Ingredients (AP and IT), and SCC Soft Computer (AP Coordinator, AR Coordinator). Full timeline is in the Experience section."],
+      [/current.*job|current.*role|where.*currently|docwealth|doc wealth/,
+        "Operations Associate at DocWealth, a fully remote startup, since April 2026. Daily operations from client onboarding to billing to offboarding, most of the company's automations and data checks, Claude in daily operations, monthly billing reconciliation, and a 20+ SOP library."],
+      [/mifi|mitsubishi/,
+        "AP and IT Administrative Assistant at Mitsubishi International Food Ingredients, Oct 2024 to Apr 2026. 600+ vendor transactions a month with no late payments, invoice batches from 45 minutes to 5, IT asset accuracy from 85% to 98%, and the CFO's monthly cost allocation report. Two company awards along the way."],
       [/scc|soft computer|previous.*job|florida.*job/,
-        "AP Coordinator and AR Coordinator at SCC Soft Computer, from mid-2022 to late 2024. Redesigned the expense report process, cut approval cycle time 30%, and used SQL to maintain 99%+ accuracy across 500+ accounts."],
+        "AR Coordinator, then AP Coordinator at SCC Soft Computer, from mid-2022 to late 2024. Promoted within 8 months, never missed a payment date, and redesigned expense approvals so reports cleared 30% faster."],
       [/experience|background|career|history|resume|cv/,
-        "3+ years across AP, AR, IT operations, and workflow automation. Currently at Mitsubishi International Food Ingredients operating across operations, finance, and IT functions. Before that, AP Coordinator and AR Coordinator at SCC Soft Computer in Clearwater, FL. The Experience section has the full timeline."],
+        "Four years across finance, IT, and client operations. Currently Operations Associate at DocWealth. Before that, Mitsubishi International Food Ingredients and SCC Soft Computer. The Experience section has the full timeline, and the resume is one click away."],
       [/award|recognition|\belp\b/,
-        "ELP Learning Award Q3 2024 and ELP Initiative Award Q2 2025, both at MIFI. The Learning Award was for continuously building new skills and applying problem-solving to deliver stronger results. The Initiative Award was for identifying issues and improving processes without waiting for direction. Both for doing things that were not in the job description."],
+        "Mitsubishi Initiative Award (Q2 2025) for improving processes without being asked, and Learning Award (Q3 2024) for continuously building new skills. Both for doing things that were not in the job description."],
       [/where.*from|hometown|originally|clearwater|florida/,
         "Originally from Clearwater, FL. Degree from St. Petersburg College in 2022, worked in Florida for two years, then moved to New Jersey. New Jersey has seasons and I have made peace with that."],
       [/education|degree|college|university|school/,
-        "B.A. in Business Administration & Management from St. Petersburg College, FL, 2022."],
+        "Bachelor of Arts in Business Administration and Management from St. Petersburg College, 2022."],
 
       // job search
       [/looking for|open to|seeking|what.*want|what.*looking/,
-        "Remote full-time in Business Operations, Process Improvement, or RevOps. Ideally somewhere the problems are real, the scope is meaningful, and the processes are not already perfect."],
+        "Business operations, process automation, and AI workflow work, fully remote. Ideally somewhere the problems are real, the scope is meaningful, and the processes are not already perfect."],
       [/work auth|visa|sponsor|eligible|authorized|citizen|us work/,
         "Authorized to work in the US. No sponsorship needed."],
       [/location|where.*based|remote|\bnj\b|new jersey/,
-        "Based in New Jersey. Looking for remote work, open to anywhere."],
+        "New Jersey, Eastern Time. Fully remote and works async."],
       [/salary|rate|pay|compensation|how much/,
-        "Happy to discuss specifics directly. I have a number in mind and it is reasonable. maddie.rochovansky@atomicmail.io"],
-      [/freelance|consult|hire.*for|available.*project/,
-        "Open to select freelance: workflow automation, operations cleanup, AP and AR setup, SharePoint builds, Excel dashboards, web builds, and SEO. If the problem does not have a clean name yet, those are usually the most interesting ones. The Work With Me page has the full breakdown."],
-      [/contact|email|reach|get in touch/,
-        "maddie.rochovansky@atomicmail.io or the contact form at the bottom of the page. If you want to skip the email chain: cal.com/rochovanskym/phone-call"],
-      [/book|call|schedule|calendar|cal\.com|meeting/,
-        "cal.com/rochovanskym/phone-call. Thirty minutes, no agenda required."],
+        "Happy to discuss specifics directly. madison.rochovansky@gmail.com"],
+      [/contact|email|reach|get in touch|book|call|schedule|meeting/,
+        "madison.rochovansky@gmail.com, LinkedIn, or the message form in the Contact section. Email is fastest."],
       [/linkedin/,
         "linkedin.com/in/maddie-rochovansky"],
 
@@ -278,7 +272,7 @@
       [/coworker|colleague|\bteam\b|what.*people.*say|reference/,
         "The most common variation is: she already fixed that. Sometimes followed by: wait, she did that too?"],
       [/real person|human|\bbot\b|robot|actually (you|maddie)/,
-        "Technically a bot. But everything in here came from a real person who is very much available for hire and would prefer you email her rather than continue interrogating the chatbot."],
+        "Technically a bot. But everything in here came from a real person who would prefer you email her rather than continue interrogating the chatbot."],
       [/bad at|weakness|not good|struggle|honest/,
         "I notice broken things and cannot leave them alone. That has never once been bad for the job. It has occasionally been bad for my evenings."],
       [/cats|pets|\bcat\b/,
@@ -301,7 +295,7 @@
       }
     }
 
-    addMaddieMsg("That one is outside my range. Try the actual human: maddie.rochovansky@atomicmail.io");
+    addMaddieMsg("That one is outside my range. Try the actual human: madison.rochovansky@gmail.com");
     setTimeout(function () { _refreshSuggestions(null); }, 1200);
   }
 
@@ -357,6 +351,5 @@
   window.toggleChat    = toggleChat;
   window.askSuggestion = askSuggestion;
   window.sendChat      = sendChat;
-  window.debugChat     = debugChat;
 
 })();

@@ -1,0 +1,7 @@
+# Repo files that should not be served publicly
+.git
+.gitignore
+.assetsignore
+README.md
+wrangler.jsonc
+_redirects

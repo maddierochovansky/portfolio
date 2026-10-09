@@ -1,18 +1,18 @@
 const CERTIFICATIONS = {
   featured: [
     {
-      name: "Certified Lean Six Sigma Black Belt",
+      name: "Certified Lean Six Sigma Green Belt",
       issuer: "SSAA",
       category: "Process &amp; Operations",
       accent: "gold",
-      link: "https://www.virtualbadge.io/certificate-validator?credential=098d5911-4be0-4a23-9394-627da54f7b2a",
+      link: "https://www.virtualbadge.io/certificate-validator?credential=5e372b57-38b9-45d8-81bf-7f0f0ff4350d",
     },
     {
-      name: "Certified Risk Management FMEA ISO 31000 Expert",
+      name: "Certified Process Improvement &amp; Process Mapping Expert",
       issuer: "SSAA",
-      category: "Risk &amp; Compliance",
+      category: "Process &amp; Operations",
       accent: "copper",
-      link: "https://www.virtualbadge.io/certificate-validator?credential=9cc00ef3-ea33-4aa2-86ed-d5147aa21405",
+      link: "https://www.virtualbadge.io/certificate-validator?credential=2ccd1a1a-b403-4017-adcd-bea26ed79012",
     },
     {
       name: "Revenue Operations",
@@ -27,7 +27,6 @@ const CERTIFICATIONS = {
     {
       name: "Process &amp; Operations",
       items: [
-        { name: "Certified Lean Six Sigma Black Belt", issuer: "SSAA", link: "https://www.virtualbadge.io/certificate-validator?credential=098d5911-4be0-4a23-9394-627da54f7b2a" },
         { name: "Certified Lean Six Sigma Green Belt", issuer: "SSAA", link: "https://www.virtualbadge.io/certificate-validator?credential=5e372b57-38b9-45d8-81bf-7f0f0ff4350d" },
         { name: "Certified Process Improvement &amp; Process Mapping Expert", issuer: "SSAA", link: "https://www.virtualbadge.io/certificate-validator?credential=2ccd1a1a-b403-4017-adcd-bea26ed79012" },
         { name: "Lean Management &amp; Manufacturing Expert", issuer: "SSAA", link: "https://www.virtualbadge.io/certificate-validator?credential=908a6b7e-0d51-4afa-bd9a-aa1879f75e1b" },
